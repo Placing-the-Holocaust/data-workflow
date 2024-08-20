@@ -155,7 +155,7 @@ testimonies_metadata = pd.DataFrame(metadata)
 # Setup spaCy model
 labels = ["dlf", "populated place", "country", "region", "interior space", "env feature", "building", "spatial object"]
 nlp = spacy.blank("en")
-nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_small-v2.1-holocaust", "labels": labels, "chunk_size": 250})
+nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_small-v2.1-holocaust", "labels": labels, "chunk_size": 250, "map_location": "cuda"})
 
 # Usage example:
 process_files("./data/03_html_sentences/", "./data/04_html_ner", nlp, testimonies_metadata)
