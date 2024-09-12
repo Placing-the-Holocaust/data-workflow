@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+    <title>2. src.data.sentences.py &#8212; Placing the Holocaust Project - Data Workflow</title>
   
   
   
@@ -57,9 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/08.test-weaviate';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book_material/src_sentences';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. src.data.ner.py" href="src_ner.html" />
+    <link rel="prev" title="1. src.data.clean.py" href="src_clean.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -175,26 +175,26 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/01_about_the_project.html">About the Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/02_team.html">About the Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_about_the_project.html">About the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_team.html">About the Team</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/machine_learning.html">1. Machine Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/ner.html">2. Named Entity Recognition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/vector_databases.html">3. Vector Databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/semantic_search.html">4. Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ner.html">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semantic_search.html">4. Semantic Search</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow/01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_clean.html">1. src.data.clean.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_sentences.html">2. src.data.sentences.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_ner.html">3. src.data.ner.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_visualize.html">4. src.visualization.visualize.py</a></li>
 </ul>
 
     </div>
@@ -241,37 +241,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/08.test-weaviate.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -297,7 +266,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/08.test-weaviate.ipynb" target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/book_material/src_sentences.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/08.test-weaviate.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fbook_material/src_sentences.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +313,7 @@
       
       
       
-      <li><a href="../_sources/workflow/08.test-weaviate.ipynb" target="_blank"
+      <li><a href="../_sources/book_material/src_sentences.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +323,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -415,9 +384,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -428,19 +395,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>src.data.sentences.py</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -450,63 +409,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">weaviate</span>
-<span class="kn">from</span> <span class="nn">weaviate.auth</span> <span class="kn">import</span> <span class="n">Auth</span>
-<span class="kn">import</span> <span class="nn">weaviate.classes</span> <span class="k">as</span> <span class="nn">wvc</span>
+  <section id="src-data-sentences-py">
+<h1><span class="section-number">2. </span>src.data.sentences.py<a class="headerlink" href="#src-data-sentences-py" title="Link to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
 
-<span class="n">collection_name</span> <span class="o">=</span> <span class="s2">&quot;HolocaustTestimonies&quot;</span>
+<span class="k">def</span> <span class="nf">add_sentences</span><span class="p">(</span><span class="n">input_directory</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">):</span>
+    <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">blank</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+    <span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;sentencizer&quot;</span><span class="p">)</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">weaviate</span><span class="o">.</span><span class="n">connect_to_weaviate_cloud</span><span class="p">(</span>
-    <span class="n">cluster_url</span><span class="o">=</span><span class="n">WEAVIATE_URL</span><span class="p">,</span>
-    <span class="n">auth_credentials</span><span class="o">=</span><span class="n">Auth</span><span class="o">.</span><span class="n">api_key</span><span class="p">(</span><span class="n">WEAVIATE_API_KEY</span><span class="p">),</span>
-<span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">holocaust_testimonies</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">collection_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_directory</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.html&quot;</span><span class="p">):</span>
+            <span class="n">input_filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="n">output_filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_directory</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_filepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+            <span class="n">sentence_id</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="c1"># Remove empty p tags</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">dialogue</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;dialogue&#39;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">dialogue</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+                    <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+                    
+                    <span class="n">new_content</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">sents</span><span class="p">:</span>
+                        <span class="n">new_content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;sentence id=&quot;</span><span class="si">{</span><span class="n">sentence_id</span><span class="si">}</span><span class="s1">&quot;&gt;</span><span class="si">{</span><span class="n">sent</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s1"> &lt;/sentence&gt;&#39;</span><span class="p">)</span>
+                        <span class="n">sentence_id</span> <span class="o">+=</span> <span class="mi">1</span>
+                    
+                    <span class="n">p</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_content</span><span class="p">),</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">))</span>
+
+            <span class="c1"># Remove empty dialogue tags</span>
+            <span class="k">for</span> <span class="n">dialogue</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;dialogue&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">dialogue</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
+                    <span class="n">dialogue</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+            <span class="c1"># Save the modified content to the output directory</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">))</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> and saved to </span><span class="si">{</span><span class="n">output_filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="err">`</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
-<span class="kn">from</span> <span class="nn">weaviate.classes.query</span> <span class="kn">import</span> <span class="n">MetadataQuery</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;sentence-transformers/LaBSE&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py:11: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from tqdm.autonotebook import tqdm, trange
-/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:89: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don&#39;t have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  torch.load(os.path.join(input_path, &quot;pytorch_model.bin&quot;), map_location=torch.device(&quot;cpu&quot;))
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_similar</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
-    <span class="n">query_vector</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">query</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">holocaust_testimonies</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">near_vector</span><span class="p">(</span>
-        <span class="n">near_vector</span><span class="o">=</span><span class="n">query_vector</span><span class="p">,</span>
-        <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">return_metadata</span><span class="o">=</span><span class="n">MetadataQuery</span><span class="p">(</span><span class="n">distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;book&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;chapter&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;verse&quot;</span><span class="p">],</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -521,7 +478,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./workflow"
+            path: "./book_material"
         },
         predefinedOutput: true
     }
@@ -538,27 +495,30 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="src_clean.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>src.data.clean.py</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="src_ner.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>src.data.ner.py</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

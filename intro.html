@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction &#8212; Placing the Holocaust Project - Data Workflow</title>
+    <title>PLACING THE HOLOCAUST &#8212; Placing the Holocaust Project - Data Workflow</title>
   
   
   
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Introduction
+                    <p align="center">PLACING THE HOLOCAUST</p>
                 </a>
             </li>
         </ul>
@@ -179,11 +179,23 @@
 <li class="toctree-l1"><a class="reference internal" href="book_material/01_about_the_project.html">About the Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="book_material/02_team.html">About the Team</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="book_material/machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/ner.html">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/semantic_search.html">4. Semantic Search</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="workflow/01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow/02-add-sentences.html">2. Adding Sentences to the HTML Files with spaCy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow/03-add-ner.html">3. Using GLiNER and spaCy for Named Entity Recognition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="book_material/src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/src_sentences.html">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
 </ul>
 
     </div>
@@ -373,7 +385,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -384,11 +398,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction</h1>
+    <h1><p align="center">PLACING THE HOLOCAUST</p></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-and-documentation"><p align="center">Workflow and Documentation</p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-book">About this Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite"><p align="center">How to Cite</p></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -398,8 +422,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+  <section id="placing-the-holocaust">
+<h1><p align="center">PLACING THE HOLOCAUST</p><a class="headerlink" href="#placing-the-holocaust" title="Link to this heading">#</a></h1>
+<section id="workflow-and-documentation">
+<h2><p align="center">Workflow and Documentation</p><a class="headerlink" href="#workflow-and-documentation" title="Link to this heading">#</a></h2>
+<p align="center">Funded by the NEH</p>
+</section>
+<section id="about-this-book">
+<h2>About this Book<a class="headerlink" href="#about-this-book" title="Link to this heading">#</a></h2>
 <p>This is a collection of notebooks developed for the NEH-funded Placing the Holocaust Project. To learn more about this project, please visit the “About the Project” Section in the Table of Contents (left-hand sidebar). This is a JupyterBook, which functions rather like an open-access and open-source textbook for code-based projects. We have selected JupyterBook as the appropriate medium for this content because it is increasingly becoming the industry standard, it can address the needs of audiences that can and cannot code, and finally it allows readers to load up the notebooks in a coding environment on Google Colab (click the rocket-ship icon in the top-left corner of the screen).</p>
 <p>These notebooks are one of the several deliverables of the project. The purpose of these notebooks is multifaceted:</p>
 <ol class="arabic simple">
@@ -412,6 +442,17 @@ document.write(`
 </ol>
 <p>We have written these notebooks for audiences of all levels. If you want to just learn a bit about the project and the team, please visit the “About the Project” section. If you want to acquaint yourself with the key concepts and technologies behind the project, feel free to read the “Technology and Concepts” section. This will cover things like named entity recognition, vector databases, and semantic searching. If you are more interested in looking at our workflow, then check out the “Workflow” section. The workflow section will have explanatory text, but it is meant for those who wish to follow along with some of the code we developed for this project.</p>
 <p>One of the benefits of this JupyterBook being open-access and open-source is that it can be community-driven. If you want to see something explained more, found a typographical error, or perhaps just have a question, feel free to use the GitHub icon in the top-left corner of the screen to submit an issue or suggest an edit.</p>
+<p>[citation method forthcoming]</p>
+</section>
+<section id="how-to-cite">
+<h2><p align="center">How to Cite</p><a class="headerlink" href="#how-to-cite" title="Link to this heading">#</a></h2>
+<p>[author]. <i>needs title</i>, 2024. <a href="https://placing-the-holocaust.github.io/data-workflow" target="_blank">https://placing-the-holocaust.github.io/data-workflow</a>.</p>
+<p align="center">
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -463,6 +504,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-and-documentation"><p align="center">Workflow and Documentation</p></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-this-book">About this Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-cite"><p align="center">How to Cite</p></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

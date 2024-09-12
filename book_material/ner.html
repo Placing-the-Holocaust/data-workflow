@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+    <title>2. Named Entity Recognition &#8212; Placing the Holocaust Project - Data Workflow</title>
   
   
   
@@ -57,9 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/08.test-weaviate';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book_material/ner';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Vector Databases" href="vector_databases.html" />
+    <link rel="prev" title="1. Machine Learning" href="machine_learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -175,26 +175,26 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/01_about_the_project.html">About the Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/02_team.html">About the Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_about_the_project.html">About the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_team.html">About the Team</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/machine_learning.html">1. Machine Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/ner.html">2. Named Entity Recognition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/vector_databases.html">3. Vector Databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/semantic_search.html">4. Semantic Search</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semantic_search.html">4. Semantic Search</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow/01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_clean.html">1. src.data.clean.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_sentences.html">2. src.data.sentences.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_ner.html">3. src.data.ner.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_sentences.html">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src_visualize.html">4. src.visualization.visualize.py</a></li>
 </ul>
 
     </div>
@@ -241,37 +241,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/08.test-weaviate.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -297,7 +266,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/08.test-weaviate.ipynb" target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/book_material/ner.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/08.test-weaviate.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fbook_material/ner.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +313,7 @@
       
       
       
-      <li><a href="../_sources/workflow/08.test-weaviate.ipynb" target="_blank"
+      <li><a href="../_sources/book_material/ner.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +323,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -428,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Named Entity Recognition</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -437,9 +406,24 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-examples">2.1. Overview and Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaches-to-ner">2.2. Approaches to NER</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-based-ner">2.2.1. Rules-Based NER</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-based-ner">2.2.2. Machine Learning-Based NER</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy-for-ner">2.3. spaCy for NER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-classification-ner">2.4. Zero-Shot Classification NER</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">2.4.1. How it works:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gliner-generalist-model-for-named-entity-recognition">2.5. GLiNER (Generalist Model for Named Entity Recognition)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-gliner">2.5.1. Key features of GLiNER:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.5.2. How it works:</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -450,63 +434,88 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">weaviate</span>
-<span class="kn">from</span> <span class="nn">weaviate.auth</span> <span class="kn">import</span> <span class="n">Auth</span>
-<span class="kn">import</span> <span class="nn">weaviate.classes</span> <span class="k">as</span> <span class="nn">wvc</span>
-
-<span class="n">collection_name</span> <span class="o">=</span> <span class="s2">&quot;HolocaustTestimonies&quot;</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">weaviate</span><span class="o">.</span><span class="n">connect_to_weaviate_cloud</span><span class="p">(</span>
-    <span class="n">cluster_url</span><span class="o">=</span><span class="n">WEAVIATE_URL</span><span class="p">,</span>
-    <span class="n">auth_credentials</span><span class="o">=</span><span class="n">Auth</span><span class="o">.</span><span class="n">api_key</span><span class="p">(</span><span class="n">WEAVIATE_API_KEY</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="n">holocaust_testimonies</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">collection_name</span><span class="p">)</span>
-</pre></div>
+  <section id="named-entity-recognition">
+<h1><span class="section-number">2. </span>Named Entity Recognition<a class="headerlink" href="#named-entity-recognition" title="Link to this heading">#</a></h1>
+<p>Named Entity Recognition (NER) is a crucial task in natural language processing that involves identifying and classifying named entities (such as persons, organizations, locations, dates, etc.) within a given text. NER plays a vital role in various applications, including information extraction, question answering, and text summarization.</p>
+<section id="overview-and-examples">
+<h2><span class="section-number">2.1. </span>Overview and Examples<a class="headerlink" href="#overview-and-examples" title="Link to this heading">#</a></h2>
+<p>Consider the following sentence:</p>
+<div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+"<span style="background-color: #ffcccb; color: black; font-weight: bold;">William Shakespeare</span> wrote '<span style="background-color: #c2f0c2; color: black; font-weight: bold;">Romeo and Juliet</span>' in <span style="background-color: #add8e6; color: black; font-weight: bold;">London</span> during the <span style="background-color: #fffacd; color: black; font-weight: bold;">16th century</span>."
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
-<span class="kn">from</span> <span class="nn">weaviate.classes.query</span> <span class="kn">import</span> <span class="n">MetadataQuery</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;sentence-transformers/LaBSE&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py:11: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from tqdm.autonotebook import tqdm, trange
-/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
-  warnings.warn(
-/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:89: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don&#39;t have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  torch.load(os.path.join(input_path, &quot;pytorch_model.bin&quot;), map_location=torch.device(&quot;cpu&quot;))
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_similar</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
-    <span class="n">query_vector</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">query</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">holocaust_testimonies</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">near_vector</span><span class="p">(</span>
-        <span class="n">near_vector</span><span class="o">=</span><span class="n">query_vector</span><span class="p">,</span>
-        <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">return_metadata</span><span class="o">=</span><span class="n">MetadataQuery</span><span class="p">(</span><span class="n">distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;book&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;chapter&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;verse&quot;</span><span class="p">],</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>A NER system would identify:</p>
+<ul class="simple">
+<li><p>“<span style="background-color: #ffcccb; color: black; font-weight: bold;">William Shakespeare</span>” as a Person</p></li>
+<li><p>“<span style="background-color: #c2f0c2; color: black; font-weight: bold;">Romeo and Juliet</span>” as a Work of Art</p></li>
+<li><p>“<span style="background-color: #add8e6; color: black; font-weight: bold;">London</span>” as a Location</p></li>
+<li><p>“<span style="background-color: #fffacd; color: black; font-weight: bold;">16th century</span>” as a Time Period</p></li>
+</ul>
+</section>
+<section id="approaches-to-ner">
+<h2><span class="section-number">2.2. </span>Approaches to NER<a class="headerlink" href="#approaches-to-ner" title="Link to this heading">#</a></h2>
+<section id="rules-based-ner">
+<h3><span class="section-number">2.2.1. </span>Rules-Based NER<a class="headerlink" href="#rules-based-ner" title="Link to this heading">#</a></h3>
+<p>Rules-based NER systems use predefined patterns and rules to identify entities. These rules might include:</p>
+<ul class="simple">
+<li><p>Capitalization patterns (e.g., proper nouns often start with a capital letter)</p></li>
+<li><p>Contextual cues (e.g., “Mr.” or “Dr.” before a name)</p></li>
+<li><p>Gazetteers (lists of known entities)</p></li>
+</ul>
+<p>While rules-based systems can be precise for specific domains, they often struggle with ambiguity and require extensive manual effort to create and maintain rules.</p>
+</section>
+<section id="machine-learning-based-ner">
+<h3><span class="section-number">2.2.2. </span>Machine Learning-Based NER<a class="headerlink" href="#machine-learning-based-ner" title="Link to this heading">#</a></h3>
+<p>Machine learning approaches to NER treat the task as a sequence labeling problem. These methods learn to identify entities from annotated training data.</p>
+<p>Common ML techniques for NER include:</p>
+<ol class="arabic simple">
+<li><p>Conditional Random Fields (CRFs)</p></li>
+<li><p>Hidden Markov Models (HMMs)</p></li>
+<li><p>Deep Learning models (e.g., Bi-LSTM-CRF, Transformers)</p></li>
+</ol>
+<p>Machine learning-based NER systems can handle complex patterns and generalize well to unseen data, but they require large amounts of labeled training data.</p>
+</section>
+</section>
+<section id="spacy-for-ner">
+<h2><span class="section-number">2.3. </span>spaCy for NER<a class="headerlink" href="#spacy-for-ner" title="Link to this heading">#</a></h2>
+<p>spaCy is a popular open-source library for advanced natural language processing in Python. It provides pre-trained NER models that can recognize a wide range of entity types.</p>
+</section>
+<section id="zero-shot-classification-ner">
+<h2><span class="section-number">2.4. </span>Zero-Shot Classification NER<a class="headerlink" href="#zero-shot-classification-ner" title="Link to this heading">#</a></h2>
+<p>Zero-shot classification NER is an advanced approach that allows the model to recognize entity types it hasn’t been explicitly trained on. This is particularly useful in domains where labeled data is scarce or when dealing with novel entity types.</p>
+<section id="how-it-works">
+<h3><span class="section-number">2.4.1. </span>How it works:<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>The model is trained on a large corpus of text and entity types.</p></li>
+<li><p>During inference, it can be given new, unseen entity types as input.</p></li>
+<li><p>The model uses its understanding of language to identify entities that match these new types.</p></li>
+</ol>
+<p>This approach leverages the model’s general language understanding to adapt to new tasks without requiring additional training data.</p>
+</section>
+</section>
+<section id="gliner-generalist-model-for-named-entity-recognition">
+<h2><span class="section-number">2.5. </span>GLiNER (Generalist Model for Named Entity Recognition)<a class="headerlink" href="#gliner-generalist-model-for-named-entity-recognition" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/urchade/GLiNER?">GLiNER</a> is a compact and efficient NER model designed to identify any type of entity using bidirectional transformer models.</p>
+<section id="key-features-of-gliner">
+<h3><span class="section-number">2.5.1. </span>Key features of GLiNER:<a class="headerlink" href="#key-features-of-gliner" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Flexibility: It can extract arbitrary entities through natural language instructions.</p></li>
+<li><p>Efficiency: Uses smaller bidirectional transformer models (e.g., BERT, DeBERTa) instead of large language models.</p></li>
+<li><p>Parallel Processing: Facilitates parallel entity extraction, unlike the sequential token generation of LLMs.</p></li>
+<li><p>Zero-shot Capability: Demonstrates strong performance in zero-shot evaluations across various NER benchmarks.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h3><span class="section-number">2.5.2. </span>How it works:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Input Format: Combines entity types (expressed in natural language) and the input text in a unified sequence.</p></li>
+<li><p>Entity-Span Matching: Treats NER as matching entity type embeddings to textual span representations in latent space.</p></li>
+<li><p>Training: Optimizes model parameters to enhance matching scores for correct span-type pairs and reduce scores for incorrect pairs.</p></li>
+</ol>
+<p>GLiNER has shown impressive results, often outperforming both ChatGPT and fine-tuned LLMs in zero-shot NER tasks, while being significantly more resource-efficient.</p>
+<p>This approach represents a significant advancement in Named Entity Recognition, offering flexibility, efficiency, and strong performance compared to traditional approaches and larger language models.</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -521,7 +530,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./workflow"
+            path: "./book_material"
         },
         predefinedOutput: true
     }
@@ -538,6 +547,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="machine_learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Machine Learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vector_databases.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Vector Databases</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -553,9 +580,24 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-examples">2.1. Overview and Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaches-to-ner">2.2. Approaches to NER</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-based-ner">2.2.1. Rules-Based NER</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-based-ner">2.2.2. Machine Learning-Based NER</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spacy-for-ner">2.3. spaCy for NER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-shot-classification-ner">2.4. Zero-Shot Classification NER</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">2.4.1. How it works:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gliner-generalist-model-for-named-entity-recognition">2.5. GLiNER (Generalist Model for Named Entity Recognition)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-gliner">2.5.1. Key features of GLiNER:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.5.2. How it works:</a></li>
+</ul>
+</li>
+</ul>
   </nav></div>
 
 </div></div>
