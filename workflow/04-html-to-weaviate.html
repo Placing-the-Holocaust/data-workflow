@@ -57,7 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/06-html-to-weaviate';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/04-html-to-weaviate';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -169,7 +169,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
@@ -181,9 +181,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="02-add-sentences.html">3. Adding Sentences to the HTML Files with spaCy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-add-ner.html">4. Using GLiNER and spaCy for Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-add-sentences.html">2. Adding Sentences to the HTML Files with spaCy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-add-ner.html">3. Using GLiNER and spaCy for Named Entity Recognition</a></li>
 </ul>
 
     </div>
@@ -238,7 +237,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/06-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/04-html-to-weaviate.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/06-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/04-html-to-weaviate.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/06-html-to-weaviate.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/04-html-to-weaviate.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -333,7 +332,7 @@
       
       
       
-      <li><a href="../_sources/workflow/06-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="../_sources/workflow/04-html-to-weaviate.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -613,8 +612,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">weaviate.auth</span> <span class="kn">import</span> <span class="n">Auth</span>
 <span class="kn">import</span> <span class="nn">weaviate.classes</span> <span class="k">as</span> <span class="nn">wvc</span>
 
-<span class="n">WEAVIATE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://1tnwq0iequmnhcrcultoq.c0.us-east1.gcp.weaviate.cloud&quot;</span>
-<span class="n">WEAVIATE_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;pV6haMawVUuFMWiu8RGRkbrpjo4YfGehXHmV&quot;</span>
+
 <span class="n">collection_name</span> <span class="o">=</span> <span class="s2">&quot;HolocaustTestimonies&quot;</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">weaviate</span><span class="o">.</span><span class="n">connect_to_weaviate_cloud</span><span class="p">(</span>

@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/01-pdf-to-html';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Adding Sentences to the HTML Files with spaCy" href="02-add-sentences.html" />
+    <link rel="next" title="2. Adding Sentences to the HTML Files with spaCy" href="02-add-sentences.html" />
     <link rel="prev" title="About the Team" href="../book_material/02_team.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,7 +169,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
@@ -181,9 +181,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Working with the USHMM PDFs</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="02-add-sentences.html">3. Adding Sentences to the HTML Files with spaCy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03-add-ner.html">4. Using GLiNER and spaCy for Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-add-sentences.html">2. Adding Sentences to the HTML Files with spaCy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-add-ner.html">3. Using GLiNER and spaCy for Named Entity Recognition</a></li>
 </ul>
 
     </div>
@@ -427,7 +426,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Working with the USHMM PDFs</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-of-notebook">1.1. Objective of Notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">1.2. Getting Started</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-packages">1.2.1. About the Packages</a></li>
@@ -444,11 +442,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-html">1.4. Convert to HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning">1.5. Further Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-sentences-and-adding-them-to-html">1.6. Identifying Sentences and Adding them to HTML</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-the-entire-process">2. Automate the Entire Process</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -525,9 +520,11 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /Applications/anaconda3/
 
 <span class="kn">from</span> <span class="nn">ushmm</span> <span class="kn">import</span> <span class="n">pdf_to_images</span><span class="p">,</span> <span class="n">images_to_text</span><span class="p">,</span> <span class="n">clean_texts</span><span class="p">,</span> <span class="n">remove_footers</span><span class="p">,</span> <span class="n">process_testimony_texts</span>
 <span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span><span class="p">,</span> <span class="n">list_repo_files</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">datasets</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">src.visualize</span> <span class="kn">import</span> <span class="n">visualize_diff</span>
 <span class="kn">from</span> <span class="nn">src.clean</span> <span class="kn">import</span> <span class="n">clean_html</span>
+<span class="kn">from</span> <span class="nn">src.data.sentences</span> <span class="kn">import</span> <span class="n">add_sentences</span>
 </pre></div>
 </div>
 </div>
@@ -606,13 +603,15 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /Applications/anaconda3/
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_filename</span> <span class="o">=</span> <span class="s2">&quot;pdfs/RG-50.030.0001_trs_en&quot;</span>
+<span class="n">demo_directory</span> <span class="o">=</span> <span class="s2">&quot;demo_data&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="n">pdf_to_images</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/images&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="n">pdf_to_images</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/images&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -674,7 +673,7 @@ Saved: ./data/pdfs/RG-50.030.0001_trs_en/images/0036.jpg
 <p>Now that we have converted the PDF to a series of images, we now need to focus on a key challenge with the image: isolating the main body of the text. Some pages contain footers which function as footnotes. These are often identified with a long line. We can use this feature to flag and remove footers. The <code class="docutils literal notranslate"><span class="pre">ushmm</span></code> function <code class="docutils literal notranslate"><span class="pre">remove_footers</span></code> takes a directory of images, flags pages where footers appear, and removes the footer. It then saves the images in a new directory. This is achieved via OpenCV.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_images</span> <span class="o">=</span> <span class="n">remove_footers</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/images&#39;</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/images_cropped&#39;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_images</span> <span class="o">=</span> <span class="n">remove_footers</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/images&#39;</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/images_cropped&#39;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -725,7 +724,7 @@ Processed image saved at: ./data/pdfs/RG-50.030.0001_trs_en/images_cropped/0036.
 <p>Now that we have isolated the main body of the text, we can perform OCR. During this step, we will pass each cropped image to Tesseract, an OCR Engine from Google. This process will be handled automatically via the <code class="docutils literal notranslate"><span class="pre">ushmm</span></code> function <code class="docutils literal notranslate"><span class="pre">images_to_text</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span> <span class="o">=</span> <span class="n">images_to_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/images_cropped&quot;</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span> <span class="o">=</span> <span class="n">images_to_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/images_cropped&quot;</span><span class="p">,</span> <span class="n">output_folder</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -777,7 +776,7 @@ Saved: ./data/pdfs/RG-50.030.0001_trs_en/text/0036.txt
 <p>This function is verbose and will output the corrections it makes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">processed_texts</span> <span class="o">=</span> <span class="n">clean_texts</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text&quot;</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/clean_text&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">processed_texts</span> <span class="o">=</span> <span class="n">clean_texts</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text&quot;</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/clean_text&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -932,9 +931,9 @@ Normalizing quotes...
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">page_file</span> <span class="o">=</span> <span class="s2">&quot;0012.txt&quot;</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text/</span><span class="si">{</span><span class="n">page_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/text/</span><span class="si">{</span><span class="n">page_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">original_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/clean_text/</span><span class="si">{</span><span class="n">page_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s2">/clean_text/</span><span class="si">{</span><span class="n">page_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">clean_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">visualize_diff</span><span class="p">(</span><span class="n">original_text</span><span class="p">,</span> <span class="n">clean_text</span><span class="p">)</span>
@@ -967,7 +966,7 @@ Normalizing quotes...
 <p>This process will automatically identify the key structure of the pages and align them. Most importantly, it will use HTML tags to identify important features of the original data, such as page breaks. Although not perfect, it also attempts to preserve the original paragraphs of the PDF with <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags. Sections of dialogue receive a <code class="docutils literal notranslate"><span class="pre">&lt;dialogue&gt;</span></code> tag. The dialogue <code class="docutils literal notranslate"><span class="pre">class</span></code> defines what type of dialogue it is. For example, a dialogue can empty (No determined class), <code class="docutils literal notranslate"><span class="pre">Question</span></code> or <code class="docutils literal notranslate"><span class="pre">Answer</span></code>. This is determined by the presence a specific indication at the start of a dialogue sequence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html_result</span> <span class="o">=</span> <span class="n">process_testimony_texts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./data/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/clean_text&#39;</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;demo.html&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html_result</span> <span class="o">=</span> <span class="n">process_testimony_texts</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">clean_filename</span><span class="si">}</span><span class="s1">/clean_text&#39;</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/demo.html&quot;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">html_result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1214,7 +1213,7 @@ Normalizing quotes...
 <p>At this stage, we have outputted a single HTML file using the <code class="docutils literal notranslate"><span class="pre">ushmm</span></code> library. Unfortunately, our work is not quite done. The <code class="docutils literal notranslate"><span class="pre">ushmm</span></code> package is meant to provide generic data cleaning methods. Some PDFs require further cleaning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_html</span> <span class="o">=</span> <span class="n">clean_html</span><span class="p">(</span><span class="s2">&quot;demo.html&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;demo_cleaned.html&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_html</span> <span class="o">=</span> <span class="n">clean_html</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">/demo.html&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1226,68 +1225,27 @@ Cleaned HTML saved to: demo_cleaned.html/demo_cleaned.html
 </div>
 </div>
 </section>
+<section id="identifying-sentences-and-adding-them-to-html">
+<h2><span class="section-number">1.6. </span>Identifying Sentences and Adding them to HTML<a class="headerlink" href="#identifying-sentences-and-adding-them-to-html" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimony-metadata&quot;</span><span class="p">)[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
+<span class="n">testimonies_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+<span class="n">testimonies_metadata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usage</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;./</span><span class="si">{</span><span class="n">demo_directory</span><span class="si">}</span><span class="s1">/html_sentences/&#39;</span>
+<span class="n">add_sentences</span><span class="p">(</span><span class="n">demo_directory</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="automate-the-entire-process">
-<h1><span class="section-number">2. </span>Automate the Entire Process<a class="headerlink" href="#automate-the-entire-process" title="Link to this heading">#</a></h1>
-<p>If you wish to automate this entire process, you can do so via this notebook or you can do so via <code class="docutils literal notranslate"><span class="pre">src/process_pdf.py</span></code> which will handle multithreading and make the process substantially faster.</p>
-<p>For the placing the Holocaust, we do not work with all these PDFs, rather a subset we defined and for which we collected metadata about the speakers. You can collect these RG Numbers (which correspond to the PDF filenames) via this code snippet. Note, you may need to install <code class="docutils literal notranslate"><span class="pre">datasets</span></code>. You can do so via pip.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>datasets
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="n">rgs_dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimony-metadata&quot;</span><span class="p">)[</span><span class="s2">&quot;train&quot;</span><span class="p">][</span><span class="s2">&quot;RG Number&quot;</span><span class="p">]</span>
-    
-<span class="c1"># Clean RG numbers to match the format in PDF filenames</span>
-<span class="n">rgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w.-]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">rg</span><span class="p">)</span> <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">rgs_dataset</span><span class="p">]</span>
-<span class="n">rgs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;RG-50.549.02.0033&#39;,
- &#39;RG-50.549.02.0072&#39;,
- &#39;RG-50.549.02.0035&#39;,
- &#39;RG-50.471.0015&#39;,
- &#39;RG-50.030.0585&#39;,
- &#39;RG-50.549.02.0071&#39;,
- &#39;RG-50.106.0081&#39;,
- &#39;RG-50.549.02.0019&#39;,
- &#39;RG-50.030.0699&#39;,
- &#39;RG-50.471.0014&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for pdf_filename in tqdm(pdfs[3:3]):</span>
-<span class="c1">#     # Remove &#39;pdfs/&#39; from the filename if it exists</span>
-<span class="c1">#     clean_filename = pdf_filename.replace(&#39;.pdf&#39;, &#39;&#39;)</span>
-    
-<span class="c1">#     # Define the path for the output HTML file</span>
-<span class="c1">#     output_html_path = f&quot;../data/{clean_filename}.html&quot;</span>
-    
-<span class="c1">#     # Check if the output HTML file already exists</span>
-<span class="c1">#     # if not os.path.exists(output_html_path):</span>
-<span class="c1">#     if &quot;pdfs&quot; in pdf_filename:</span>
-<span class="c1">#         hf_hub_download(repo_id=&quot;placingholocaust/ushmm-pdfs&quot;, filename=pdf_filename, local_dir=&quot;../data&quot;, repo_type=&quot;dataset&quot;)</span>
-        
-<span class="c1">#         # Use the clean_filename for all subsequent operations</span>
-<span class="c1">#         images = pdf_to_images(f&quot;../data/{pdf_filename}&quot;, f&quot;../data/{clean_filename}/images&quot;, save=True)</span>
-<span class="c1">#         cropped_images = remove_footers(f&#39;../data/{clean_filename}/images&#39;, output_directory=f&#39;../data/{clean_filename}/images_cropped&#39;, save=True)</span>
-<span class="c1">#         texts = images_to_text(f&quot;../data/{clean_filename}/images_cropped&quot;, save=True, output_folder=f&quot;../data/{clean_filename}/text&quot;)</span>
-<span class="c1">#         texts = clean_texts(f&quot;../data/{clean_filename}/text&quot;, save=True, output_directory=f&quot;../data/{clean_filename}/clean_text&quot;)</span>
-<span class="c1">#         html_result = process_testimony_texts(f&#39;../data/{clean_filename}/clean_text&#39;, output_file=output_html_path, save=True)</span>
-<span class="c1">#         print(f&quot;Processed {clean_filename} and saved HTML output.&quot;)</span>
-<span class="c1">#     else:</span>
-<span class="c1">#         print(f&quot;Skipping {clean_filename} as HTML output already exists.&quot;)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1334,7 +1292,7 @@ Cleaned HTML saved to: demo_cleaned.html/demo_cleaned.html
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Adding Sentences to the HTML Files with spaCy</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Adding Sentences to the HTML Files with spaCy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1354,7 +1312,6 @@ Cleaned HTML saved to: demo_cleaned.html/demo_cleaned.html
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Working with the USHMM PDFs</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-of-notebook">1.1. Objective of Notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">1.2. Getting Started</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-packages">1.2.1. About the Packages</a></li>
@@ -1371,11 +1328,8 @@ Cleaned HTML saved to: demo_cleaned.html/demo_cleaned.html
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-html">1.4. Convert to HTML</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning">1.5. Further Cleaning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-sentences-and-adding-them-to-html">1.6. Identifying Sentences and Adding them to HTML</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#automate-the-entire-process">2. Automate the Entire Process</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

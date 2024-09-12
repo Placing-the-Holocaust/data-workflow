@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+    <title>Introduction &#8212; Placing the Holocaust Project - Data Workflow</title>
   
   
   
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    <no title>
+                    Introduction
                 </a>
             </li>
         </ul>
@@ -182,9 +182,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="workflow/01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="workflow/02-add-sentences.html">3. Adding Sentences to the HTML Files with spaCy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow/03-add-ner.html">4. Using GLiNER and spaCy for Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow/02-add-sentences.html">2. Adding Sentences to the HTML Files with spaCy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow/03-add-ner.html">3. Using GLiNER and spaCy for Named Entity Recognition</a></li>
 </ul>
 
     </div>
@@ -374,9 +373,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -387,19 +384,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -409,11 +398,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>This is a collection of notebooks developed for the NEH-funded Placing the Holocaust Project. They will guide the reader through the workflow. Most importantly, it will document some of the challenges we encountered during our project. Finally, we will make notes about the technological changes during the project’s two-year funding period.</p>
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>This is a collection of notebooks developed for the NEH-funded Placing the Holocaust Project. To learn more about this project, please visit the “About the Project” Section in the Table of Contents (left-hand sidebar). This is a JupyterBook, which functions rather like an open-access and open-source textbook for code-based projects. We have selected JupyterBook as the appropriate medium for this content because it is increasingly becoming the industry standard, it can address the needs of audiences that can and cannot code, and finally it allows readers to load up the notebooks in a coding environment on Google Colab (click the rocket-ship icon in the top-left corner of the screen).</p>
+<p>These notebooks are one of the several deliverables of the project. The purpose of these notebooks is multifaceted:</p>
+<ol class="arabic simple">
+<li><p>guide researchers through our workflow</p></li>
+<li><p>help them use the data we have cultivated</p></li>
+<li><p>demonstrate the utility of the data</p></li>
+<li><p>assist in leveraging the machine learning models we have trained</p></li>
+<li><p>learn about the technologies used by this project</p></li>
+<li><p>reproduce the results</p></li>
+</ol>
+<p>We have written these notebooks for audiences of all levels. If you want to just learn a bit about the project and the team, please visit the “About the Project” section. If you want to acquaint yourself with the key concepts and technologies behind the project, feel free to read the “Technology and Concepts” section. This will cover things like named entity recognition, vector databases, and semantic searching. If you are more interested in looking at our workflow, then check out the “Workflow” section. The workflow section will have explanatory text, but it is meant for those who wish to follow along with some of the code we developed for this project.</p>
+<p>One of the benefits of this JupyterBook being open-access and open-source is that it can be community-driven. If you want to see something explained more, found a typographical error, or perhaps just have a question, feel free to use the GitHub icon in the top-left corner of the screen to submit an issue or suggest an edit.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -460,21 +463,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
