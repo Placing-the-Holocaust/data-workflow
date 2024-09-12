@@ -1,0 +1,1 @@
+This is a collection of notebooks developed for the NEH-funded Placing the Holocaust Project. They will guide the reader through the workflow. Most importantly, it will document some of the challenges we encountered during our project. Finally, we will make notes about the technological changes during the project's two-year funding period.
