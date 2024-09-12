@@ -1,3 +1,3 @@
 # About the Team
 
-add details here
+[to be filled in]

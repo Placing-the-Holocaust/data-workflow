@@ -8,9 +8,22 @@ parts:
   - file: book_material/01_about_the_project
   - file: book_material/02_team
 
+# - caption: 'Important Terms and Concepts'
+#   numbered: false
+#   chapters:
+#   - file: book_material/01_about_the_project
+#   - file: book_material/02_team
+
 - caption: Workflow
   numbered: true
   chapters:
   - file: workflow/01-pdf-to-html
   - file: workflow/02-add-sentences
   - file: workflow/03-add-ner
+
+# - caption: Python Files
+#   numbered: true
+#   chapters:
+#   - file: workflow/01-pdf-to-html
+#   - file: workflow/02-add-sentences
+#   - file: workflow/03-add-ner

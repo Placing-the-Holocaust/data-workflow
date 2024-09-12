@@ -7,3 +7,4 @@ demo
 *__pycache__
 data/weaviate-data-2024-08-20.parquet
 data./.git/objects/pack/pack-d5ace1f97a32a4ee9b41c8733015d7afe795482d.pack
+.env
