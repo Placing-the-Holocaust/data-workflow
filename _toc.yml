@@ -5,8 +5,8 @@ parts:
 - caption: 'About the Project'
   numbered: false
   chapters:
-  - file: book_material/01_about_the_project.md
-  - file: book_material/02_about_the_team.md
+  - file: book_material/01_about_the_project
+  - file: book_material/02_team
 
 - caption: Workflow
   numbered: true
