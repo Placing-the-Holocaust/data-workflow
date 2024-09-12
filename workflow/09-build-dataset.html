@@ -1,0 +1,2018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Holocaust Survivor Testimonies Dataset &#8212; Placing the Holocaust Project - Data Workflow</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/09-build-dataset';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Placing the Holocaust Project - Data Workflow</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <p align="center">PLACING THE HOLOCAUST</p>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/01_about_the_project.html">About the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/02_team.html">About the Team</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/ner.html">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/semantic_search.html">4. Semantic Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analysis/01-exploring-questions.html">1. Analyzing Questions</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_sentences.html">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/09-build-dataset.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/09-build-dataset.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/09-build-dataset.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workflow/09-build-dataset.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Holocaust Survivor Testimonies Dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Holocaust Survivor Testimonies Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-structure">Dataset Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-structure">HTML Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-finding-all-the-questions">Example of Finding all the Questions:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-code-to-download-and-parse-the-dataset">Python code to download and parse the dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-dataset-from-hugging-face">Load the dataset from Hugging Face</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-extract-questions-from-html-content">Function to extract questions from HTML content</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-through-the-dataset-and-print-questions">Iterate through the dataset and print questions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#note-replace-your-username-in-the-dataset-loading-line-with-the-actual-username-or-organization-name-under-which-the-dataset-is-hosted-on-hugging-face">Note: Replace “your_username” in the dataset loading line with the actual username or organization name under which the dataset is hosted on Hugging Face.</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">HfApi</span>
+
+<span class="c1"># Define the path to the cleaned HTML files</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/cleaned_htmls&quot;</span>
+
+<span class="c1"># Function to read HTML files and extract filenames</span>
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.html&#39;</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">html_content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">rg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Remove extension</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;rg&quot;</span><span class="p">:</span> <span class="n">rg</span><span class="p">,</span> <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">html_content</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+<span class="c1"># Load the data</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">load_data</span><span class="p">())</span>
+
+<span class="c1"># Print dataset info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="c1"># Push to Hugging Face Hub</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">HfApi</span><span class="p">()</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_repo</span><span class="p">(</span><span class="n">repo_id</span><span class="o">=</span><span class="s2">&quot;placingholocaust/testimonies-1k&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimonies-1k&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset uploaded successfully to placingholocaust/testimonies-1k&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
+    features: [&#39;rg&#39;, &#39;html&#39;],
+    num_rows: 949
+})
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "61095d4ac6b742f091841e5c4e4dae00", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4c9d0ca4ab3406da149f12f97f34899", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "f94b642d0cd345418d09dca37ec28fbe", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset uploaded successfully to placingholocaust/testimonies-1k
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create README.md content</span>
+
+<span class="n">Holocaust</span> <span class="n">Survivor</span> <span class="n">Testimonies</span> <span class="n">Dataset</span>
+
+<span class="n">This</span> <span class="n">dataset</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">Holocaust</span> <span class="n">survivor</span> <span class="n">testimonies</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">United</span> <span class="n">States</span> <span class="n">Holocaust</span> <span class="n">Memorial</span> <span class="n">Museum</span> <span class="p">(</span><span class="n">USHMM</span><span class="p">)</span><span class="o">.</span> <span class="n">The</span> <span class="n">testimonies</span> <span class="n">are</span> <span class="n">presented</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">unconventional</span> <span class="n">HTML</span> <span class="nb">format</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">temporary</span> <span class="ow">and</span> <span class="n">will</span> <span class="n">be</span> <span class="n">further</span> <span class="n">processed</span> <span class="ow">in</span> <span class="n">future</span> <span class="n">iterations</span><span class="o">.</span>
+
+<span class="c1">## Dataset Structure</span>
+
+<span class="n">Each</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">dataset</span> <span class="n">consists</span> <span class="n">of</span> <span class="n">two</span> <span class="n">fields</span><span class="p">:</span>
+
+<span class="mf">1.</span> <span class="err">`</span><span class="n">rg</span><span class="err">`</span><span class="p">:</span> <span class="n">A</span> <span class="n">unique</span> <span class="n">identifier</span> <span class="k">for</span> <span class="n">each</span> <span class="n">testimony</span><span class="p">,</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">the</span> <span class="n">original</span> <span class="n">filename</span> <span class="n">without</span> <span class="n">the</span> <span class="n">extension</span><span class="o">.</span>
+<span class="mf">2.</span> <span class="err">`</span><span class="n">html</span><span class="err">`</span><span class="p">:</span> <span class="n">The</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">testimony</span> <span class="ow">in</span> <span class="n">HTML</span> <span class="nb">format</span><span class="o">.</span>
+
+<span class="c1">## HTML Structure</span>
+
+<span class="n">The</span> <span class="n">HTML</span> <span class="n">content</span> <span class="ow">is</span> <span class="n">structured</span> <span class="k">as</span> <span class="n">follows</span><span class="p">:</span>
+
+<span class="o">-</span> <span class="n">The</span> <span class="n">document</span> <span class="n">starts</span> <span class="k">with</span> <span class="n">a</span> <span class="n">standard</span> <span class="n">HTML5</span> <span class="n">doctype</span> <span class="ow">and</span> <span class="n">structure</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">The</span> <span class="n">main</span> <span class="n">content</span> <span class="ow">is</span> <span class="n">enclosed</span> <span class="ow">in</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">tags</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Each</span> <span class="n">dialogue</span> <span class="n">element</span> <span class="p">(</span><span class="n">question</span> <span class="ow">or</span> <span class="n">answer</span><span class="p">)</span> <span class="ow">is</span> <span class="n">wrapped</span> <span class="ow">in</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">dialogue</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">tags</span> <span class="k">with</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">attribute</span> <span class="n">indicating</span> <span class="n">whether</span> <span class="n">it</span><span class="s1">&#39;s a &quot;Question&quot; or &quot;Answer&quot;.</span>
+<span class="o">-</span> <span class="n">The</span> <span class="n">text</span> <span class="n">content</span> <span class="ow">is</span> <span class="n">further</span> <span class="n">wrapped</span> <span class="ow">in</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">tags</span> <span class="n">within</span> <span class="n">the</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">dialogue</span><span class="o">&gt;</span><span class="err">`</span> <span class="n">tags</span><span class="o">.</span>
+
+<span class="n">Example</span><span class="p">:</span>
+<span class="err">```</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="holocaust-survivor-testimonies-dataset">
+<h1>Holocaust Survivor Testimonies Dataset<a class="headerlink" href="#holocaust-survivor-testimonies-dataset" title="Link to this heading">#</a></h1>
+<p>This dataset contains a collection of Holocaust survivor testimonies from the United States Holocaust Memorial Museum (USHMM). The testimonies are presented in an unconventional HTML format, which is temporary and will be further processed in future iterations.</p>
+<section id="dataset-structure">
+<h2>Dataset Structure<a class="headerlink" href="#dataset-structure" title="Link to this heading">#</a></h2>
+<p>Each item in the dataset consists of two fields:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rg</span></code>: A unique identifier for each testimony, corresponding to the original filename without the extension.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html</span></code>: The content of the testimony in HTML format.</p></li>
+</ol>
+</section>
+<section id="html-structure">
+<h2>HTML Structure<a class="headerlink" href="#html-structure" title="Link to this heading">#</a></h2>
+<p>The HTML content is structured as follows:</p>
+<ul class="simple">
+<li><p>The document starts with a standard HTML5 doctype and structure.</p></li>
+<li><p>The main content is enclosed in <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> tags.</p></li>
+<li><p>Each dialogue element (question or answer) is wrapped in <code class="docutils literal notranslate"><span class="pre">&lt;dialogue&gt;</span></code> tags with a class attribute indicating whether it’s a “Question” or “Answer”.</p></li>
+<li><p>The text content is further wrapped in <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> tags within the <code class="docutils literal notranslate"><span class="pre">&lt;dialogue&gt;</span></code> tags.
+Example:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>DAVID KOCHALSKI July 28, 1994<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Question&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Q: I need you to start off by telling me your name, place of birth, and date of birth?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Answer&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A: My name David Kochalski. I was born in a small town called , and I was born May 5, 1928.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Question&quot;</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Q: Tell me a little bit about your family life before the war?<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There are <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> elements with class “page-break” used to identify page breaks within the text. These elements include a “number” attribute indicating the page number.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span> <span class="p">&lt;</span><span class="nt">dialogue</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;Answer&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A: Yes, I did. I felt it, maybe not personally, but I knew of a lot of incidents whereby either they were small little -- I would call it -- we were separated, in other words, but hardly got together, and there were incidents. Incidents, not pleasant incidents, because we were <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;page-break&quot;</span> <span class="na">number</span><span class="o">=</span><span class="s">&quot;0&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> called in from the house, people regardless of how religious we were, did not believe that we were really religious people.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+ <span class="p">&lt;/</span><span class="nt">dialogue</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-of-finding-all-the-questions">
+<h2>Example of Finding all the Questions:<a class="headerlink" href="#example-of-finding-all-the-questions" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># Load the dataset from Hugging Face</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimonies-1k&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Function to extract questions from HTML content</span>
+<span class="k">def</span> <span class="nf">extract_questions</span><span class="p">(</span><span class="n">html_content</span><span class="p">):</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">questions</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;dialogue&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;Question&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">]</span>
+
+<span class="c1"># Iterate through the dataset and print questions</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+    <span class="n">rg</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rg&#39;</span><span class="p">]</span>
+    <span class="n">html_content</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+    
+    <span class="n">questions</span> <span class="o">=</span> <span class="n">extract_questions</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Questions from testimony </span><span class="si">{</span><span class="n">rg</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">question</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-code-to-download-and-parse-the-dataset">
+<h1>Python code to download and parse the dataset<a class="headerlink" href="#python-code-to-download-and-parse-the-dataset" title="Link to this heading">#</a></h1>
+<p>from datasets import load_dataset
+from bs4 import BeautifulSoup</p>
+</section>
+<section id="load-the-dataset-from-hugging-face">
+<h1>Load the dataset from Hugging Face<a class="headerlink" href="#load-the-dataset-from-hugging-face" title="Link to this heading">#</a></h1>
+<p>dataset = load_dataset(“placingholocaust/testimonies-1k”, split=”train”)</p>
+</section>
+<section id="function-to-extract-questions-from-html-content">
+<h1>Function to extract questions from HTML content<a class="headerlink" href="#function-to-extract-questions-from-html-content" title="Link to this heading">#</a></h1>
+<p>def extract_questions(html_content):
+soup = BeautifulSoup(html_content, ‘html.parser’)
+questions = soup.find_all(‘dialogue’, class_=’Question’)
+return [q.get_text(strip=True) for q in questions]</p>
+</section>
+<section id="iterate-through-the-dataset-and-print-questions">
+<h1>Iterate through the dataset and print questions<a class="headerlink" href="#iterate-through-the-dataset-and-print-questions" title="Link to this heading">#</a></h1>
+<p>for item in dataset[‘train’]:
+rg = item[‘rg’]
+html_content = item[‘html’]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>questions = extract_questions(html_content)
+
+print(f&quot;Questions from testimony {rg}:&quot;)
+for i, question in enumerate(questions, 1):
+    print(f&quot;{i}. {question}&quot;)
+print(&quot;\n&quot;)
+</pre></div>
+</div>
+</section>
+<section id="note-replace-your-username-in-the-dataset-loading-line-with-the-actual-username-or-organization-name-under-which-the-dataset-is-hosted-on-hugging-face">
+<h1>Note: Replace “your_username” in the dataset loading line with the actual username or organization name under which the dataset is hosted on Hugging Face.<a class="headerlink" href="#note-replace-your-username-in-the-dataset-loading-line-with-the-actual-username-or-organization-name-under-which-the-dataset-is-hosted-on-hugging-face" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python code to download and parse the dataset</span>
+
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># Load the dataset from Hugging Face</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimonies-1k&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Function to extract questions from HTML content</span>
+<span class="k">def</span> <span class="nf">extract_questions</span><span class="p">(</span><span class="n">html_content</span><span class="p">):</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">questions</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;dialogue&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;Question&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">]</span>
+
+<span class="c1"># Iterate through the dataset and print questions</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">:</span>
+    <span class="n">rg</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;rg&#39;</span><span class="p">]</span>
+    <span class="n">html_content</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+    
+    <span class="n">questions</span> <span class="o">=</span> <span class="n">extract_questions</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Questions from testimony </span><span class="si">{</span><span class="n">rg</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">question</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Note: Replace &quot;your_username&quot; in the dataset loading line with the actual username or organization name under which the dataset is hosted on Hugging Face.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Questions from testimony RG-50.030.0469_trs_en_cleaned:
+1. Q: Good morning, Alice.
+2. Q: Welcome, welcome to Washington, and Virginia.
+3. Q: It&#39;s wonderful to have you here, finally, after all this time.
+4. Q: Yes. Alice, tell me when you were born. What was the date of -- your date of birth.
+5. Q: And where were you born?
+6. Q: In --
+7. Q: Slovakia. And what was your name when you were born?
+8. Q: R-o-t-h. And it&#39;s now?
+9. Q: Jakubovic.
+10. Q: Now I -- I&#39;d like to get some idea about your family life, about your mother and your father and your brother, and what life was like. So tell me -- tell me a little bit about your father. What was he doing?
+11. Q: Yes.
+12. Q: Vera Isen.
+13. Q: But you remembered this --
+14. Q: -- [indecipherable] Isen.
+15. Q: Right.
+16. Q: Nine years older than you.
+17. Q: A what?
+18. Q: Oh, glass.
+19. Q: Well let -- let&#39;s -- let&#39;s go back just a little bit. Tell me what your father&#39;s name was.
+20. Q: And your mother&#39;s name?
+21. Q: And your brother?
+22. Q: Nikolas?
+23. Q: [indecipherable] right. Were you close with your father?
+24. Q: With the whole family.
+25. Q: Uh-huh.
+26. Q: So you were a very sensitive child.
+27. Q: What did you like to study, Alice?
+28. Q: When -- when you were a child, what did you like to study?
+29. Q: Always?
+30. Q: And what made you think that you had to teach people to do that? Did you see a lot of cruelty before -- this is before Auschwitz.
+31. Q: No.
+32. Q: Was yours a religious home?
+33. Q: Mm-hm.
+34. Q: Right.
+35. Q: And did you like this, or this was just [indecipherable]
+36. Q: Yes.
+37. Q: Yeah.
+38. Q: Right.
+39. Q: And did you go into the synagogue and stay with her a little bit, or you s --
+40. Q: -- you stay all day?
+41. Q: Yeah.
+42. Q: Right.
+43. Q: Right, right.
+44. Q: And wh-wh-what about Zionism, were your parents Zionists? Or they were not political in any way?
+45. Q: Right. So, since you were born in 1922, when did you start high school, or gymnasium? How old would you have been?
+46. Q: 12 years old.
+47. Q: Right, yeah.
+48. Q: Explain that, wha -- wha --
+49. Q: Did you sew for yourself --
+50. Q: -- you -- you made your own clothes. And did you create the designs?
+51. Q: You did.
+52. Q: You learned how to do that?
+53. Q: That&#39;s fabulous. So what were you thinking of teaching at this point, before -- before the Nazis --
+54. Q: Right.
+55. Q: Yes, uh-huh. Right.
+56. Q: Yes.
+57. Q: Really?
+58. Q: That&#39;s amazing.
+59. Q: So you met Hugo a long time ago, bef-before the war?
+60. Q: Oh, this is after the war?
+61. Q: I see.
+62. Q: Uh-huh. Right.
+63. Q: Right.
+64. Q: Now when you were growing up, did you have lots of friends?
+65. Q: Right.
+66. Q: And were you close with your brother?
+67. Q: Was he the big brother who took care of you?
+68. Q: Yeah?
+69. Q: He did?
+70. Q: You didn&#39;t fight?
+71. Q: No?
+72. Q: That&#39;s unusual.
+73. Q: That&#39;s very sweet.
+74. Q: Bef -- before Slovakia become independent in &quot;39, and the war was going on in &quot;38 in Czechoslovakia, did you feel as you were growing up, anti-Semitism in Czechoslovakia, or did you feel comfortable as a Jewish person?
+75. Q: I felt comfortable, comforta -- only within the last year, when I was not permitted, when I had to study as numerous classes, because it was a mixed class, yes. So the children, I didn&#39;t feel anything, only the last year because I knew that I am restricted, yes it -- I cannot study forever.
+76. Q: So did you also have Gentile friends when you were growing up?
+77. Q: So it was a very mixed --
+78. Q: -- assimilated --
+79. Q: And did you identify yourself as a Jewish Czechoslovakian, or Jewish Slovakian, or was that not even in --
+80. Q: Right [indecipherable]
+81. Q: So when -- you were only 11 years old when Hitler took over in Germany in &quot;33, did you as a child begin to feel things about what was happening in Germany, or not?
+82. Q: Right, right.
+83. Q: You were scared.
+84. Q: Did you know what you were scared about? You ha -- di -- or was it just general [indecipherable]
+85. Q: Right. And when Slovakia became independent, when Tiso took over, it became worse?
+86. Q: So, or not?
+87. Q: No.
+88. Q: But your father kept his business?
+89. Q: He kept the bakery.
+90. Q: So did you --
+91. Q: And did -- your -- it wasn&#39;t your father who found this person.
+92. Q: This was -- so who found the per -- who -- who came in and became the legal owner? Who made that happen, your father?
+93. Q: In the beginning.
+94. Q: Uh-huh.
+95. Q: But when the Gentile had to come in and be the actual owner --
+96. Q: Did the government put that person in the place?
+97. Q: Your -- your father had to choose somebody.
+98. Q: It was a woman?
+99. Q: And she&#39;s talking about when she left when he was deported?
+100. Q: To be killed. And she&#39;s angry?
+101. Q: You did pay?
+102. Q: Right. We&#39;re going to have to change the tape, right?
+103. Q: Alice, I was a -- I was asking you a-about this woman who was so mean about your father, and it&#39;s quite a -- it&#39;s quite an amazing story that -- your response to her.
+104. Q: Because you didn&#39;t want her to say anything mean --
+105. Q: Yes.
+106. Q: And she was a terrible person, clearly.
+107. Q: I would doubt that many people would have done anything like that.
+108. Q: Just to look.
+109. Q: Right.
+110. Q: Right.
+111. Q: So now let&#39;s go back.
+112. Q: Slovakia enters the war in 1941 when -- when --
+113. Q: -- when the Soviet Union wa -- wa -- when the Soviet Union is a -- is attacked.
+114. Q: And then in m -- March of &quot;42, this is before you become -- you be -- you get deported to Auschwitz, there is a ghetto in Poprad, is -- am I correct, or no?
+115. Q: So -- so you are still living with your parents when you hear about the fact that you have to go to Poprad, is that right?
+116. Q: You didn&#39;t -- you didn&#39;t know. What&#39;s the -- what happened?
+117. Q: Uh-huh.
+118. Q: How did your brother know? Do you know?
+119. Q: Somebody told him.
+120. Q: So you only thought you were registering.
+121. Q: Was there any discussion in the house about not registering?
+122. Q: About just trying to escape? Nothing.
+123. Q: Right.
+124. Q: So your brother tells you that you&#39;re going to be going somewhere, but somebody&#39;s got to say you must leave the house. How did you know to go wherever you were going?
+125. Q: Yes.
+126. Q: You walked by yourself to the -- to [indecipherable]
+127. Q: And what did you pack? What did you put in there?
+128. Q: Nice clothing?
+129. Q: And you were wearing boots?
+130. Q: It was cold?
+131. Q: Yeah.
+132. Q: Gloves?
+133. Q: Do you remember saying good-bye to your mother and father?
+134. Q: Well, that must have been really hard.
+135. Q: Yeah.
+136. Q: And your father was --
+137. Q: Stayed at home.
+138. Q: Uh-huh.
+139. Q: Yes. So how did you get from PreSov to Poprad?
+140. Q: On a regular train.
+141. Q: So when did you find out it was an SS? Later?
+142. Q: Oh, you knew then?
+143. Q: That&#39;s interesting.
+144. Q: Yes. So now you go back and you&#39;re with these, what, close to a thousand women, 999 women, is that right?
+145. Q: Did you know a lot of the people, because they were a number of women from PreSov.
+146. Q: Yeah.
+147. Q: You knew everybody.
+148. Q: So, you&#39;re the only one of the group who realizes that you&#39;re going to Poland [indecipherable]
+149. Q: So you must have been really frightened then.
+150. Q: Uh-huh.
+151. Q: Yeah.
+152. Q: Right.
+153. Q: Mm.
+154. Q: Had you been hearing anything about the killings of Jews in the Soviet Union when the Germans attacked the Soviet Union, or you heard nothing?
+155. Q: Cause in &quot;41 --
+156. Q: -- when -- when they -- so did you hear rumors that the Germans were killing --
+157. Q: You don&#39;t remember.
+158. Q: So your fear is -- is based on your -- your own experiences --
+159. Q: Your instinct.
+160. Q: Uh-huh.
+161. Q: So you&#39;re there for three nights in Poprad, right?
+162. Q: Uh-huh.
+163. Q: So it&#39;s four nights.
+164. Q: So did they feed you?
+165. Q: Right. But you&#39;re not doing anything?
+166. Q: You&#39;re just waiting.
+167. Q: [indecipherable]
+168. Q: Did you become depressed during these few days before the --
+169. Q: You were depressed.
+170. Q: Yes.
+171. Q: People knew that -- everybody knew after a certain amount of time, they weren&#39;t going to the shoe company?
+172. Q: Yes.
+173. Q: Were peop -- people talking a great deal, it was very quiet, was it [indecipherable]
+174. Q: It was quiet?
+175. Q: Were people crying?
+176. Q: Right.
+177. Q: So th -- oh, okay. I think I want to stop now and change the tape, cause --
+178. Q: -- I don&#39;t want to start.
+179. Q: Alice, so you&#39;re waiting for somebody to tell you that you&#39;re all leaving?
+180. Q: Yeah.
+181. Q: And you were still hoping?
+182. Q: I know. Does somebody come into this room and say you&#39;re now leaving, get up?
+183. Q: Do you still have your luggage with you?
+184. Q: [indecipherable]
+185. Q: You have a toothbrush too?
+186. Q: Everything.
+187. Q: Everything.
+188. Q: Do you remember the time of day when you left to go into the train, the cattle car? Was it morning, was it evening?
+189. Q: But now when you were leaving Poprad to go to Oswiecim even though you don&#39;t know yet that that&#39;s where you&#39;re going --
+190. Q: -- do they take you from Poprad in th -- at night, or in the morning, do you remember?
+191. Q: And these were cattle cars, these were open without seats, obviously, right [indecipherable]
+192. Q: There were some seats?
+193. Q: Benches, uh-huh.
+194. Q: And did you still have your luggage with you?
+195. Q: You still had your luggage. So were you able to sit actually?
+196. Q: You were?
+197. Q: So this is not like some of the stories much later where people are standing the whole trip without -- you --
+198. Q: And again it&#39;s quiet?
+199. Q: But not noisy at all?
+200. Q: That&#39;s all.
+201. Q: Was there water to drink?
+202. Q: No. So you had no food with you?
+203. Q: So how long -- do you remember about how long you were on the train?
+204. Q: You arrived.
+205. Q: Now, did you arrive at the camp, or did you arrive in Oswiecim the town and have to walk?
+206. Q: Right.
+207. Q: A little bit --
+208. Q: -- but say it and then you can translate it.
+209. Q: Right.
+210. Q: You entered Auschwitz one.
+211. Q: Was this a half hour walk, do you remember, an hour walk, was it --
+212. Q: Did you happen to see any sign? Was there a sign that said lager [indecipherable]
+213. Q: You knew this was not going to be the best situation.
+214. Q: You didn&#39;t.
+215. Q: She didn&#39;t -- uh-huh. You were fl -- you were fluent in German?
+216. Q: Yes -- right
+217. Q: So whatever you were dressed in.
+218. Q: Did you have any piece of jewelry with you, something that was personal?
+219. Q: Still? Right.
+220. Q: Still. Right. Still ha -- you have [indecipherable]
+221. Q: Right. So then you line up, and what do they do? They just count you?
+222. Q: So what were the rules?
+223. Q: To obey. Whatever you&#39;re told to do.
+224. Q: The dist -- uh-huh, right.
+225. Q: So you had to be that distance between you on the sides, and in front, and then --
+226. Q: Not so.
+227. Q: Right. So you go into one part of Auschwitz one, there&#39;s barracks one through 11, I think, and they -- there is a -- a wall around it?
+228. Q: In Auschwitz one, that they built because they knew the women were coming.
+229. Q: So it&#39;s a very brutal experience, I imagine, so different from anything that you&#39;ve ever experienced or imagined in your life.
+230. Q: Yeah, clogs.
+231. Q: It was the si --
+232. Q: So they&#39;re wearing uniforms, these girls?
+233. Q: You were also wearing uniforms. So they immediately took your clothes. Did they do that within the first day or two, they took your clothes?
+234. Q: Yes.
+235. Q: Right.
+236. Q: Yeah.
+237. Q: Everywhere, your privates.
+238. Q: Everywhere on your body that was hair -- that had hair.
+239. Q: So what was on this brush? This was d-disinfectant of some kind, or soap --
+240. Q: The water?
+241. Q: So was everybody so red and bleeding as -- as you?
+242. Q: She was --
+243. Q: Did you begin to get angry as well as depressed?
+244. Q: Everything.
+245. Q: Same water for everybody.
+246. Q: Without [indecipherable]
+247. Q: Explain something to me, you say you were in a basin.
+248. Q: You were -- do you mean that literally?
+249. Q: In a big basin, all of you were there, and that&#39;s where they were scr -- scraping you?
+250. Q: That&#39;s where the water was? Was there water up high?
+251. Q: It was, ah.
+252. Q: At the same --
+253. Q: Right.
+254. Q: And how did you get in?
+255. Q: Stairs into the basin, I see.
+256. Q: So then they give you clothes, you don&#39;t get a tattoo yet?
+257. Q: Tattoo is later.
+258. Q: Do you get a number?
+259. Q: On this -- on the uniform, there&#39;s nothing?
+260. Q: So --
+261. Q: In Auschwitz one.
+262. Q: You had running water.
+263. Q: When did you -- when did you find out?
+264. Q: That there was --
+265. Q: Uh-huh.
+266. Q: So you -- did you have to write on this registration form?
+267. Q: Yes. You took off the number.
+268. Q: Right.
+269. Q: 1287 was your number.
+270. Q: Right.
+271. Q: Absolutely, cause the first 999 were from Ravensbriick.
+272. Q: So [indecipherable] the first Jewish transport women.
+273. Q: Right.
+274. Q: No, not many [indecipherable] one of the lowest numbers of the Jewish women.
+275. Q: That&#39;s for sure.
+276. Q: You know that some people say there was nothing put in the food.
+277. Q: Uh-huh.
+278. Q: Right. So yo-you think it was a couple of months, it was sometime in May when you got the tattoo?
+279. Q: Do you remember what -- what he used to do the tattoo, was there a --
+280. Q: Some needles.
+281. Q: Did it work the first time?
+282. Q: It did?
+283. Q: It stayed?
+284. Q: Some of them, but with you it was okay.
+285. Q: What was that like for you to have a tattoo? What a strange [indecipherable]
+286. Q: That&#39;s it.
+287. Q: So you had a certain kind of calm about you in a -- in a way?
+288. Q: That this was what the world was, and this is how you were going to do that.
+289. Q: Yes.
+290. Q: Okay, let&#39;s --
+291. Q: Very scary.
+292. Q: Alice, did you see yourself in a mirror v-very early on, during the first few days?
+293. Q: Yeah?
+294. Q: It was better not to see yourself, do you think?
+295. Q: But you were wearing cl -- those wooden clogs?
+296. Q: So did you turn away fast?
+297. Q: You stopped to be yourself?
+298. Q: So you -- once you saw yourself, that -- that hurt you for the next few days? It was difficult for you?
+299. Q: No more.
+300. Q: Right.
+301. Q: So everything was transformed?
+302. Q: Including your insides?
+303. Q: And you were lonely.
+304. Q: So if you knew somebody, you were able to have communication, and if you didn&#39;t --
+305. Q: -- know them, you didn&#39;t -- you didn&#39;t bother.
+306. Q: Nothing.
+307. Q: Right, right.
+308. Q: What was her name?
+309. Q: That&#39;s great.
+310. Q: So you were together for a -- a year --
+311. Q: A few months.
+312. Q: Mm-hm.
+313. Q: Was that Pinkus?
+314. Q: Was his name Pinkus?
+315. Q: You -- you don&#39;t know his name.
+316. Q: [her -- I think he may be the same person, I&#39;m not sure.
+317. Q: I&#39;m not sure.
+318. Q: Let -- let&#39;s go back before Birkenau. You -- y-you are in Auschwitz one from March 26&quot; until
+319. Q: -- au -- August six -- si -- si -- August six you move to Birkenau. So --
+320. Q: Right?
+321. Q: Think it&#39;s the sixth.
+322. Q: You have some jobs --
+323. Q: -- when you&#39;re in Auschwitz one.
+324. Q: You worked in the laundry. Is that right?
+325. Q: That&#39;s the sewing.
+326. Q: Which is a demolition.
+327. Q: Right, you had a -- like a big pole, you were --
+328. Q: You were on --
+329. Q: -- the side of this pole, yes?
+330. Q: And [indecipherable]
+331. Q: Yes.
+332. Q: So let&#39;s go back, wh-when you got the job in the laundry, who assigned people to the job? Do you have any reco -- recollection?
+333. Q: Really?
+334. Q: And you were inside when you did that.
+335. Q: Let me just ask you something. Whose clothes were you washing, do you know?
+336. Q: Really?
+337. Q: Right.
+338. Q: Now, were you able to wash yourself, because there was one -- running water in the barrack at Auschwitz one?
+339. Q: So you had a certain kind of hygiene that you could --
+340. Q: That&#39;s -- yeah -- yes.
+341. Q: And then it changes quite radically.
+342. Q: Yes. And the sewing room, what are you sewing?
+343. Q: Repairing.
+344. Q: And repairing uniforms or clothes that people -- the haftling are wearing?
+345. Q: Stripes, yes.
+346. Q: So that&#39;s what you were repairing?
+347. Q: Now, when you go --
+348. Q: Yes.
+349. Q: Right. Male and female, or just female do you think?
+350. Q: You don&#39;t know.
+351. Q: Right, right.
+352. Q: So then you&#39;re put on this demolition crew, and I gather that&#39;s where you meet Helen Teshauer, Tsipi. Or not --
+353. Q: Not on demolition --
+354. Q: -- you -- you [indecipherable]
+355. Q: -- in the field you met her?
+356. Q: And why did you like her approach, what was it about her that you remember?
+357. Q: Logic.
+358. Q: So would you say that you both had a kind of practical approach --
+359. Q: -- to what you were in?
+360. Q: So she was short, and a little stocky, is that what you said, a little --
+361. Q: [indecipherable]
+362. Q: A little short.
+363. Q: Now, did you meet her after you were doing the demolition? This is before Birkenau.
+364. Q: No
+365. Q: Cause you did demolition after the sewing room.
+366. Q: Afterwards.
+367. Q: Was -- given your description of yourself, that you were small and you weren&#39;t so strong, was demolition difficult for you?
+368. Q: A scarf?
+369. Q: This was the --
+370. Q: -- the -- the instrument that you used was like a long log with -- with iron-like -- something to hold onto on the sides, right?
+371. Q: And so that you were what, like eight women, or 10 women --
+372. Q: Uh-huh.
+373. Q: I see, it was already, I see.
+374. Q: Uh-huh.
+375. Q: And so you did that for what, a couple of months?
+376. Q: It wasn&#39;t --
+377. Q: Gum plants?
+378. Q: For rubber?
+379. Q: Rubber.
+380. Q: Did that make -- did that help your body, did you get stronger, or did it make you weaker?
+381. Q: You didn&#39;t.
+382. Q: The -- the Russian -- is those pajamas.
+383. Q: [indecipherable] military uniforms.
+384. Q: Right.
+385. Q: Warmer.
+386. Q: Did you have trouble with your feet because of the shoes rubbing on your feet? Did you get sores?
+387. Q: Oh, that&#39;s late.
+388. Q: But not -- not early?
+389. Q: You don&#39;t remember.
+390. Q: Yes, so we -- we&#39;ll stop the tape and you&#39;ll --
+391. Q: Yes?
+392. Q: That&#39;s later. Okay.
+393. Q: We were talking about the shoes.
+394. Q: And -- and the problem you might have had with your -- with your feet, and it was leading to another story, yes?
+395. Q: Yes, so tell me.
+396. Q: Yeah.
+397. Q: So you did take risks, didn&#39;t you?
+398. Q: Cause it was risky for you to move.
+399. Q: Where did that come from?
+400. Q: You don&#39;t know.
+401. Q: You don&#39;t know.
+402. Q: Did you see dead bodies in Auschwitz one?
+403. Q: Dead bodies.
+404. Q: Yes, corpses.
+405. Q: So in Auschwitz one, there was a gas chamber, yes?
+406. Q: You didn&#39;t know.
+407. Q: So you didn&#39;t smell anything funny?
+408. Q: Nothing. And nobody&#39;s said anything to you?
+409. Q: Right.
+410. Q: Uh-huh, right [indecipherable]
+411. Q: Did you hear about shooting in -- in Auschwitz one, that there was a punishment block, that they were shooting, did you -- did you hear about that when you were there? No.
+412. Q: You hear -- you heard it.
+413. Q: I think. In Auschwitz one.
+414. Q: Yes.
+415. Q: And you were in 10.
+416. Q: Uh-huh.
+417. Q: So they -- they were being hung by their hands behind their back?
+418. Q: Yes.
+419. Q: Yeah, Alice, when you say silent shooting, what -- what do you mean? You mean that there was -- there was a silencer on the gun that -- or that you were so far away you could only hear it a little bit?
+420. Q: You weren&#39;t far.
+421. Q: Uh-huh. Which was close to that wall.
+422. Q: Yeah, yeah.
+423. Q: Yeah, but what were you hearing, a pop? Just a --
+424. Q: Yeah, yeah.
+425. Q: You -- you didn&#39;t help at all in building Birkenau. Some of the prisoners were doing that.
+426. Q: Mm.
+427. Q: Roads.
+428. Q: Uh-huh.
+429. Q: And that became Auschwitz-Birkenau?
+430. Q: You think so, but you you&#39;re -- but you&#39;re not sure.
+431. Q: Right.
+432. Q: Planing?
+433. Q: Making it smooth?
+434. Q: A wheelbarrow?
+435. Q: Mm-hm.
+436. Q: [indecipherable]. Right.
+437. Q: No, not in a situation where they treated you so bad.
+438. Q: No.
+439. Q: Were there lights in Auschwitz one? Was it -- were there actual lights there?
+440. Q: In -- in the barracks?
+441. Q: There were.
+442. Q: So when did you find out that you were all -- all the women were being -- I know me -- men were going into aush -- into Auschwitz-Birkenau, they were already there.
+443. Q: [indecipherable] and being --
+444. Q: They were there, yes.
+445. Q: So how -- you don&#39;t know.
+446. Q: So did they announce to you what -- get up we&#39;re going to ow -- Auschwitz-Birkenau? I mean ho-how -- how did that happen?
+447. Q: And you go.
+448. Q: Nothing to -- nothing to pack, easy, right.
+449. Q: The bowl.
+450. Q: Did you carry the bowl with you all the time?
+451. Q: Something.
+452. Q: And what was in it?
+453. Q: I see.
+454. Q: You weren&#39;t given a spoon, you were given the bowl.
+455. Q: So -- so your mental state becomes smaller and smaller?
+456. Q: So that you think about very few things.
+457. Q: If you picture the barrack and your bed in Auschwitz one, do you see the bowl there? Do you think that you left the bowl on the bed?
+458. Q: So do you remember entering Birkenau in August of &quot;43, do you remember --
+459. Q: -- that first day?
+460. Q: What -- what can you tell me about it? What was it like?
+461. Q: And it&#39;s three, three high, right?
+462. Q: And more than two people are sleeping on each bunk?
+463. Q: In a lot of pain?
+464. Q: But it&#39;s interesting, because as bad as Auschwitz one was, Birkenau was much worse.
+465. Q: Yes.
+466. Q: It was easier than in Birkenau.
+467. Q: So Birkenau becomes a shock. There is no running water, right?
+468. Q: Right. It&#39;s a -- a room with just lots of holes in it, right?
+469. Q: Holes?
+470. Q: Ah, period, completely open.
+471. Q: The Slovak?
+472. Q: Tsipi? Helen Teshauer
+473. Q: Yeah, yes.
+474. Q: You did.
+475. Q: That&#39;s a little later.
+476. Q: Yes, up, up, up, right.
+477. Q: So, you go to BIA, right? The b -- the -- the part that was the women&#39;s camp in Birkenau.
+478. Q: B-- BIA.
+479. Q: And -- and the men were in BIB.
+480. Q: Do you remember what barrack you were in?
+481. Q: In the beginning?
+482. Q: Yeah.
+483. Q: Uh-huh.
+484. Q: Right.
+485. Q: Right.
+486. Q: So how -- how soon is it that you realize in Birkenau there are gas chambers?
+487. Q: [indecipherable]
+488. Q: Register.
+489. Q: Uh-huh.
+490. Q: The quarantine block, where they kept people.
+491. Q: And then they --
+492. Q: Right, yeah.
+493. Q: Well, they kept people there --
+494. Q: And then they took them to the -- to the gas chamber.
+495. Q: So --
+496. Q: So -- and sometimes not.
+497. Q: Right.
+498. Q: But they started to have -- there were some selections in Auschwitz one, yes? So -- or you don&#39;t know?
+499. Q: But in Birkenau you started to have selections?
+500. Q: One, yeah.
+501. Q: To burn.
+502. Q: So were you working in a demolition, in an au -- in Ausenkommando when you were in Birkenau at first, or did you immediately start working sorting clothes?
+503. Q: No, sort -- sort clothes, you [indecipherable]
+504. Q: Uh-huh.
+505. Q: Ausenkommando first.
+506. Q: Uh-huh.
+507. Q: Yes, and what did you do?
+508. Q: 1943.
+509. Q: We will stop the tape now and take a break.
+510. Q: Right.
+511. Q: Alice.
+512. Q: We were talking about the first job that you had in Auschwitz-Birkenau.
+513. Q: Which is after August, 1942.
+514. Q: Which is working in the [indecipherable]
+515. Q: [indecipherable]
+516. Q: Scarves, and that&#39;s what you were wearing, I see.
+517. Q: And this was where you were sorting clothes?
+518. Q: So what was the difference between the work that you were doing sorting clothes and the work that Canada commando was doing sorting clothes, do you know?
+519. Q: And -- and your commando wasn&#39;t connected with Canada commando?
+520. Q: No, it was totally separate.
+521. Q: I see.
+522. Q: Did you like working in that commando?
+523. Q: No, no, the other one [indecipherable]
+524. Q: And wh-why did you like that and you didn&#39;t like the Canada?
+525. Q: I see.
+526. Q: Do you remember the name of this nice man [indecipherable]
+527. Q: Ambrose.
+528. Q: Right. Were you surprised that there would be somebody who was so nice in that position?
+529. Q: Mm. So how did it happen that you moved from this commando? It was closed?
+530. Q: Uh-huh, right.
+531. Q: Right.
+532. Q: Yeah [indecipherable] but you didn&#39;t --
+533. Q: Were these commandos protected commandos, there were no selections?
+534. Q: There were selections?
+535. Q: And he brought her back.
+536. Q: But were there selections inside the commando?
+537. Q: Only from the barrack?
+538. Q: The say -- zaehlappell, when you --
+539. Q: Right.
+540. Q: Uh-huh.
+541. Q: Oh.
+542. Q: So you had to jump over the ditch?
+543. Q: Through it?
+544. Q: Oh, you mean -- so you went --
+545. Q: -- over it --
+546. Q: -- over it from one side to the other.
+547. Q: And if someone fell --
+548. Q: That&#39;s what you were told?
+549. Q: So when you went to the Canada commando, you didn&#39;t stay for very long.
+550. Q: How long?
+551. Q: A few days?
+552. Q: And that was less difficult for you. You liked that better, being outside [indecipherable]
+553. Q: And how did that happen? Can you explain?
+554. Q: A whip? Yes?
+555. Q: Did you -- did you know of Katya Singer before? Had you met her when you were in Auschwitz one, or --
+556. Q: No.
+557. Q: You didn&#39;t.
+558. Q: But you knew about her -- when he said Katya Singer you knew --
+559. Q: Everybody knew?
+560. Q: Katya, and you knew it.
+561. Q: Did you know also that Tsipi, Helen Teshauer was working with Katya?
+562. Q: At that -- by that time you --
+563. Q: No.
+564. Q: And that was it?
+565. Q: Okay, ne -- nevermore.
+566. Q: Right. Do you have -- how would you describe Katya, what was she like?
+567. Q: She was nice?
+568. Q: It was a very big position for a Jewish woman, wasn&#39;t it?
+569. Q: In that situation.
+570. Q: Bergen-Belsen?
+571. Q: Uh-huh.
+572. Q: So now you become a Laeuferin, which is essentially a runner, you -- you are --
+573. Q: You&#39;re always running and doing errands and sending messages --
+574. Q: -- cause there is no phone system.
+575. Q: Like a messenger.
+576. Q: Yeah, right, but --
+577. Q: -- but not -- but obviously not all through the whole system.
+578. Q: So -- this is going to sound like a really stupid question --
+579. Q: -- but is there -- is there training? I mean, what did they tell you --
+580. Q: -- no. They just say go do this, go do that, whatever --
+581. Q: Right.
+582. Q: So where do you start living? You move out from the barrack you were in, and you move into barrack four? Is that where all the --
+583. Q: No.
+584. Q: Mm-hm.
+585. Q: Mm-hm.
+586. Q: Wooden barracks, yeah.
+587. Q: Right.
+588. Q: And -- and you knew Mala Zimetbaum?
+589. Q: What was she like?
+590. Q: How do you remember her?
+591. Q: Courageous.
+592. Q: Right. And what about the other two, there were two other women who were also Laeuferin --
+593. Q: Uh-huh.
+594. Q: Now, was the situation in that block as good as it was in block four or not?
+595. Q: The -- the earlier block, when you were with [indecipherable]
+596. Q: Right, so you were safe.
+597. Q: To wash yourself, yeah.
+598. Q: The hospital, yeah.
+599. Q: And where does that come from, what is that --
+600. Q: Yes.
+601. Q: Really?
+602. Q: Uh-huh.
+603. Q: How?
+604. Q: Is there medication? Was there anything that you took?
+605. Q: But in that condition, had you not been a Laeuferin, and in a protected commando, you probably would have been killed, because you would have looked sick.
+606. Q: No?
+607. Q: Uh-huh.
+608. Q: Right.
+609. Q: Right, right.
+610. Q: Were you surprised at the conditions in block four? That everybody had -- you had your own bed, and --
+611. Q: You weren&#39;t?
+612. Q: You knew that that was --
+613. Q: Right.
+614. Q: Right, right.
+615. Q: Right.
+616. Q: Now, are you saying that you did not know tsip -- Tsipi, Helen Teshauer in block four? So she was in that block --
+617. Q: You didn&#39;t -- you never -- you never saw her?
+618. Q: So there are what, about 90 or a hundred women there.
+619. Q: More.
+620. Q: I see.
+621. Q: Less than a hundred.
+622. Q: Uh-huh.
+623. Q: Right.
+624. Q: But she often worked at night.
+625. Q: Tsipi. So maybe that&#39;s why you didn&#39;t see her, you know.
+626. Q: But it seems funny that you didn&#39;t see her.
+627. Q: You would see Katya.
+628. Q: I see.
+629. Q: And you know her, yes.
+630. Q: Right.
+631. Q: Right.
+632. Q: So you didn&#39;t know.
+633. Q: You knew Anna Pilarchik, Hanka.
+634. Q: Hanka.
+635. Q: Alteste, right.
+636. Q: So how did people get along --
+637. Q: -- in that? Was it good? It was okay?
+638. Q: Yes.
+639. Q: So did you now feel if the war ended --
+640. Q: -- that you would be safe?
+641. Q: Right.
+642. Q: Now, did you menstruate, did you get your period?
+643. Q: You ne -- you didn&#39;t get it even then, because some women there were getting their periods.
+644. Q: No, but I mean in block four.
+645. Q: Uh-huh, uh-huh.
+646. Q: Right.
+647. Q: Right.
+648. Q: Right.
+649. Q: So describe what a day might be like. What would you do, when would you get up, would there be a roll call in that barrack?
+650. Q: Early -- everybody -- every barrack would have that.
+651. Q: Uh-huh.
+652. Q: And then who would then give you an assignment? You would wait?
+653. Q: No.
+654. Q: And who was the they, who would give -- who would tell you what to do?
+655. Q: So she remembers that the two of you had met each other in barrack four?
+656. Q: Had seen each other. And you have no recollection.
+657. Q: Only that -- right, but --
+658. Q: Uh-huh, right.
+659. Q: Right.
+660. Q: Right, right.
+661. Q: So someone would --
+662. Q: -- send you --
+663. Q: So you would translate from what to what?
+664. Q: And you knew Polish?
+665. Q: And it&#39;s enough -- it&#39;s close enough.
+666. Q: So was a lot of your work doing translations? Was that a great deal of the work?
+667. Q: Right.
+668. Q: You don&#39;t know.
+669. Q: In Slovak.
+670. Q: Right. But you could speak with the Polish women who were there?
+671. Q: [indecipherable] you could -- you learned how to speak, yeah.
+672. Q: Polish.
+673. Q: Right. All right let&#39;s --
+674. Q: -- we&#39;re going to take a break and we&quot;!l change the tape.
+675. Q: Was there a Christmas celebration of some kind in block four that you remember?[indecipherable]
+676. Q: Til August, so --
+677. Q: Anna Pilarchik -- Hannah -- Anna --
+678. Q: Did report that there was a Christmas tree and a celebration in block four --
+679. Q: So it&#39;s possible.
+680. Q: It&#39;s possible that that&#39;s where you --
+681. Q: But that -- it&#39;s a vague memory for you.
+682. Q: Hm.
+683. Q: At a certain point, when the transports are coming in to Auschwitz-Birkenau, and from the outside they&#39;re killing so many people, do the -- do the internal selections get less, so the people who are already there --
+684. Q: -- are less likely to be selected?
+685. Q: Right.
+686. Q: Because there was too many?
+687. Q: So what was this like for you, you&#39;re seeing these people, you know by now --
+688. Q: -- the people are being gassed.
+689. Q: These are not simply people who have died and are being cremated, this is a factory of killing.
+690. Q: Did you ever want to commit su -- did you ever want to commit suicide?
+691. Q: No.
+692. Q: So --
+693. Q: Because you were tired, or because --
+694. Q: Yeah, uh-huh
+695. Q: Now you mentioned the name of a woman guard, Irma Grese, who many people say wer -- was very cruel, but that&#39;s now how you remember her?
+696. Q: She wasn&#39;t cruel.
+697. Q: And was that the only time you had seen her?
+698. Q: You saw her other times? But she was never cruel to you?
+699. Q: Wow.
+700. Q: How come you were there, standing at the entrance?
+701. Q: Now, why was Laeuferin standing there, is -- in order to translate if there was a need to translate, or --
+702. Q: No, no, no, I mean when the transports are coming in.
+703. Q: So would you translate for -- the Germans were not speaking Polish?
+704. Q: So if they would say something in German --
+705. Q: You -- having to do with people, nothing.
+706. Q: Now were you also standing when they took the family camp, the Theresienstadt camp out to be gassed, were you there? Am I wrong, or --
+707. Q: Not in Auschwitz, that&#39;s the pl --
+708. Q: Right.
+709. Q: Right.
+710. Q: But being outside and watching that must have been very upsetting.
+711. Q: Yes.
+712. Q: Right.
+713. Q: What about the women&#39;s orchestra, was that important for you?
+714. Q: Alma Rose.
+715. Q: Tell me about it
+716. Q: With polka dots?
+717. Q: Uh-huh.
+718. Q: This is in Auschwitz one?
+719. Q: Yeah.
+720. Q: So it was actually a recital. It was -- or ju -- was she just practicing?
+721. Q: Really. And where would this be, where in Auschwitz would this --
+722. Q: I see.
+723. Q: Mm.
+724. Q: So they had to march in unison, together?
+725. Q: It wasn&#39;t the same.
+726. Q: Now, there are some people who think they remember the orchestra playing when people went to the gas, and other people saying there was never an orchestra.
+727. Q: Yeah.
+728. Q: Really?
+729. Q: So the music for you was really important.
+730. Q: Did you know that Tsipi was in the orchestra, that she played mandolin?
+731. Q: She played mandolin and when they went -- they -- they marched out, so they would play for people who were going to work, they would come by block four and pick her up, and she would go with them and play. I don&#39;t know if she ever played concerts, but she played --
+732. Q: You didn&#39;t know that.
+733. Q: Yeah.
+734. Q: Yes.
+735. Q: Right.
+736. Q: In the morning you worked, she was playing [indecipherable] know.
+737. Q: Right. But other than your friend Dieter Rishter --
+738. Q: -- did you have another -- any other close friends, or was she the closest person?
+739. Q: Yes, but she was really --
+740. Q: So that was very hard on you to lose her.
+741. Q: Still hard?
+742. Q: I see what you&#39;re saying.
+743. Q: Right.
+744. Q: Were -- the -- the women that you saw, did most of them have one very close person?
+745. Q: You don&#39;t know.
+746. Q: You don&#39;t know how they -- how it was working.
+747. Q: Yeah.
+748. Q: Right.
+749. Q: Right. Did you ever see men coming into the camp and working?
+750. Q: Wasn&#39;t it the case that there was some -- somebody who was working the Sonderkommando, who spoke with you about what happened? Some person who saw you in Auschwitz, and talked to you, who came in the women&#39;s camp? Didn&#39;t you write about that?
+751. Q: Yeah.
+752. Q: Uh-huh.
+753. Q: Yeah.
+754. Q: Yes?
+755. Q: He found a mirror? This was after the war, this was --
+756. Q: -- during? He found a mirror and so he was fixing himself up.
+757. Q: Right, right.
+758. Q: But there were a number of times when you actually saved people, you risked your life.
+759. Q: Not just with -- with your friend Dieter, that was very dangerous to go into block 25 to bring her out.
+760. Q: In front, even in front.
+761. Q: Cause clearly she was waiting.
+762. Q: And how did you do that?
+763. Q: So |-let&#39;s stop the tape and we&quot; start with that --
+764. Q: -- on the next tape with you -- with getting Vera out.
+765. Q: Okay, before we talk about your saving Vera Isen, tell me what impelled you to do this? It was so dangerous, you could have been caught in a second and killed.
+766. Q: What made you do it? How --
+767. Q: And nobody saw you, Irma didn&#39;t see you. Irma -- irm -- was Irma Weiss, right?
+768. Q: Irna, rather, right.
+769. Q: Right.
+770. Q: She knew.
+771. Q: But if they were going through the -- th -- the process, this wasn&#39;t outside, this was inside --
+772. Q: -- were they not taking down names?
+773. Q: They can -- not that -- it was just n -- just moving people.
+774. Q: I see, so --
+775. Q: I see, so they can -- there was no way to check if you --
+776. Q: I see. Now, there were other people in that room.
+777. Q: Did they realize what you were doing, or you don&#39;t know?
+778. Q: That was people who were deteriorated and -- and close to death also, right.
+779. Q: So she escaped herself.
+780. Q: Right, right.
+781. Q: Right.
+782. Q: Yes.
+783. Q: And what gave you -- were you holding onto this young -- this 16 year old girl when you said to this other woman if you -- if you will take --
+784. Q: You just took her.
+785. Q: [indecipherable] you just took her.
+786. Q: Yeah.
+787. Q: And what brought --
+788. Q: -- together. And what made you th -- I understand this was some instinctual thing --
+789. Q: -- o-on your part, but what made you say that to her? Because you didn&#39;t think that the 16 year old would survive if she didn&#39;t have somebody?
+790. Q: Did they sur -- did they survive?
+791. Q: Right.
+792. Q: So tell me the story about Vera Isen.
+793. Q: No, you didn&#39;t. What happened, yeah.
+794. Q: So you&#39;ve never seen her since that day?
+795. Q: Right, right. Did you tell her when you brought her to -- to the sauna, did you say I am your cousin, or you never told her?
+796. Q: Oh, you did tell her.
+797. Q: Uh-huh.
+798. Q: As a cousin
+799. Q: Right, right.
+800. Q: So how do you understand yourself doing all of this?
+801. Q: Yes?
+802. Q: Nobody?
+803. Q: And you had just faked everything?
+804. Q: But he didn&#39;t look.
+805. Q: Right.
+806. Q: But don&#39;t you, even if people don&#39;t thank you, you have some feeling in yourself about what you did.
+807. Q: [indecipherable]
+808. Q: Yeah.
+809. Q: But something -- something must have been in your family, there&#39;s a certain kind of justice, or evenness, even what you did after the war, that even though this woman had no right to get money from you.
+810. Q: None --
+811. Q: -- whatsoever. But you -- it was more important for you to shut her up essentially --
+812. Q: -- so she wouldn&#39;t say nasty things about your father.
+813. Q: It was your responsibility.
+814. Q: And it&#39;s a -- oh, there&#39;s -- there&#39;s something, something.
+815. Q: Yeah.
+816. Q: Right.
+817. Q: You just did it.
+818. Q: You just did it.
+819. Q: So you did it.
+820. Q: But you know, when you said -- when we were talking before, about having -- being practical.
+821. Q: In a situation that was --
+822. Q: -- clearly completely crazy.
+823. Q: But in order to live in it, you had to think in a practical way --
+824. Q: -- not in some fantasy land, right?
+825. Q: So you were thinking and strategizing --
+826. Q: -- and seeing --
+827. Q: -- little ways.
+828. Q: To save yourself and to save some [indecipherable]
+829. Q: Yes.
+830. Q: Yes.
+831. Q: Yes.
+832. Q: I-I would think it would make somehow living with that experience a little bit easier, but you actually acted --
+833. Q: -- on behalf of other people.
+834. Q: And didn&#39;t simply watch -- you got saved and watched --
+835. Q: I don&#39;t think you could have --
+836. Q: Yeah.
+837. Q: Right.
+838. Q: Yeah. Because you thought it was going to be over anyway.
+839. Q: Now, your job as a Laeuferin --
+840. Q: Was stopped because Mala Zimetbaum --
+841. Q: -- left with her boyfriend Galinski, yes?
+842. Q: I forget what his first name was.
+843. Q: E-Edek, right.[indecipherable]
+844. Q: What did you think about that? Of course you didn&#39;t know she was going to escape, but when
+845. Q: It wasn&#39;t smart.
+846. Q: Yeah.
+847. Q: And she was in a safe position --
+848. Q: -- as a Laeuferin, sh --
+849. Q: Right
+850. Q: Right.
+851. Q: Do you have -- given that you knew her a little bit, do you have some understanding of what she thought she was doing? That she --
+852. Q: Oh.
+853. Q: Yes.
+854. Q: So do you think in some ways she&#39;s unrealistic? Is that what ---
+855. Q: Oh, uh-huh.
+856. Q: Yeah.
+857. Q: Right.
+858. Q: Mm-hm.
+859. Q: And he doesn&#39;t know.
+860. Q: I think so.
+861. Q: So show him the interview.
+862. Q: Right.
+863. Q: No.
+864. Q: Ina male uniform, right? She was --
+865. Q: No? She was [indecipherable] a woman?
+866. Q: Uh-huh, I see.
+867. Q: Right.
+868. Q: Yeah. So when they were caught, were you -- were you there when they took her to hang her?
+869. Q: I know they didn&#39;t, but weren&#39;t they -- they were bringing her.
+870. Q: You were there. So you saw what happened?
+871. Q: It was everywhere. So tell me what you saw.
+872. Q: This is aft -- after her escape, they took all of you --
+873. Q: -- out.
+874. Q: She said that aloud?
+875. Q: Yes.
+876. Q: Right, okay.
+877. Q: Tell -- explain what a Schreiberin is. That was your next job after the Laeuferin. What is -- what does a Schreiberin do?
+878. Q: Right. So you now know that those reports that you were doing was -- were going to Tsipi?
+879. Q: Now you know, you didn&#39;t know that.
+880. Q: She was making reports to go to Berlin of what was happening in the women&#39;s camp.
+881. Q: You didn&#39;t know, right.
+882. Q: Right.
+883. Q: Right.
+884. Q: That&#39;s very interesting.
+885. Q: Right.
+886. Q: Right.
+887. Q: Yes, she actually introduced us.
+888. Q: Yes.
+889. Q: Yes, I think it&#39;s very interesting.
+890. Q: I don&#39;t know when this happened, but at some point you said that an SS man visited the blockalteste&#39;s room drunk, and was asking --
+891. Q: Why did he -- yes, can you -- was this in block four?
+892. Q: No, this was another block, this was --
+893. Q: Right.
+894. Q: Yes, that one you took from the sauna?
+895. Q: Yes.
+896. Q: Yes.
+897. Q: Right.
+898. Q: And he took the gun as well?
+899. Q: Dangerous, but -- but interesting that -- that any of them would have that response, and come to you.
+900. Q: I mean, no, no, I know that, but coming to the prisoners --
+901. Q: -- to the haftlings --
+902. Q: Yes. It&#39;s almost as if you could give him forgiveness, or being with you could --
+903. Q: -- save him in some --
+904. Q: Did you ever see him again?
+905. Q: No.
+906. Q: Yeah, they&#39;re all the --
+907. Q: They&#39;re all the same.
+908. Q: Does this -- did this happen before the October --
+909. Q: It ha -- before the evacuation, but before the October -- the revolt and the blowing up of the crematorium? October 1944 --
+910. Q: -- was when they blew up the crematorium.
+911. Q: It was after that?
+912. Q: Do you remember the --
+913. Q: Excuse me, go ahead.
+914. Q: I interrupted you, go ahead.
+915. Q: Right.
+916. Q: Uh-huh.
+917. Q: Uh-huh.
+918. Q: Wh-What do mean, one disappeared, a person?
+919. Q: I don&#39;t know.
+920. Q: Right, you&#39;re not sure --
+921. Q: -- you don&#39;t know.
+922. Q: And had you heard rumors that there was resistance and people were taking powder out from the union factory, or you --
+923. Q: You had heard -- you had heard about this?
+924. Q: Yeah.
+925. Q: Actually, four.
+926. Q: Four.
+927. Q: Yeah.
+928. Q: But had you heard about that before it happened, or as a rumor, or only after?
+929. Q: Only after.
+930. Q: Uh-huh, mm-hm.
+931. Q: Uh-huh.
+932. Q: Do you remember when you left Birkenau before you actually were evacuated? Did you evacuate and go back to Auschwitz one? Or did you leave from Birkenau and start the Death March immediately?
+933. Q: Right away?
+934. Q: And that was January 18?
+935. Q: So, before you do that, let me -- did you smoke when you were in Auschwitz?
+936. Q: Sometimes?
+937. Q: I understood that men were allowed cigarettes but women were not.
+938. Q: And do you have any -- do you have any understanding of why women were not allowed to smoke and men were?
+939. Q: Isn&#39;t -- isn&#39;t it strange?
+940. Q: You -- you -- in your --
+941. Q: But it was clear to you that you were not supposed to do it?
+942. Q: Sometimes.
+943. Q: Was it helpful to smoke?
+944. Q: And where did you smoke?
+945. Q: In block four?
+946. Q: And did other women in block four smoke --
+947. Q: I see.
+948. Q: So that&#39;s how you got, somebody would just say that you want a cigarette?
+949. Q: Uh-huh.
+950. Q: But how would people get cigarettes, they would barter with something? H-How did these women get cigarettes do you think?
+951. Q: Yeah.
+952. Q: So you had access in that barrack to things, because you could walk around and you also were able to do that, whereas most women couldn&#39;t do that in the camp.
+953. Q: No, you had access to be able to barter with the Germans.
+954. Q: No?
+955. Q: As a [indecipherable]. Right.
+956. Q: Really?
+957. Q: Right. But he wouldn&#39;t do anything.
+958. Q: You couldn&#39;t do that?
+959. Q: It wasn&#39;t that --
+960. Q: That -- that became the biggest.
+961. Q: On the bottom.
+962. Q: Did you talk about food together? Did -- did women talk about recipes of food?
+963. Q: No.
+964. Q: The Hungarians did.
+965. Q: So why do you think the Hungarians did it, and the other people didn&#39;t --
+966. Q: They liked --
+967. Q: That&#39;s what I was going to say, they weren&#39;t so long.
+968. Q: 44.
+969. Q: Yes.
+970. Q: Do you remember the mud in Auschwitz?
+971. Q: Mud.
+972. Q: Mud.
+973. Q: Mud, the --
+974. Q: Mud, m-u-d.
+975. Q: So the -- the roads were not very muddy? It was not something you remember, because other people --
+976. Q: That&#39;s interesting.
+977. Q: Do you remember people being beaten?
+978. Q: You were hit that day.
+979. Q: Is that -- was that the only time that you remember?
+980. Q: Really hard.
+981. Q: What did that -- what did that -- did that do something to you as a human being, to be slapped? It must have been --
+982. Q: Yes.
+983. Q: Right. Okay.
+984. Q: When someone says the word Auschwitz to you, what&#39;s the first thing that comes to mind?
+985. Q: You don&#39;t like to hear about it.
+986. Q: So do you -- do you have a lot of friends who were from Auschwitz, a lot of people you know, or you -- you don&#39;t?
+987. Q: And so that you don&#39;t -- over the years you haven&#39;t talked about this very much?
+988. Q: Right.
+989. Q: Right.
+990. Q: Right.
+991. Q: Do you dream about it?
+992. Q: With your brother.
+993. Q: Right. Okay.End of Tape NineBeginning Tape 10
+994. Q: -- ing about your brother in Auschwitz, or dreaming --
+995. Q: -- as if you were dreaming with him? Is this what you were saying? Explain that to me.
+996. Q: That&#39;s he&#39;s there.
+997. Q: Ah, you&#39;re having dreams with your brother in it.
+998. Q: Yes. So when -- did you find out in Auschwitz what had happened to your brother and your mother and father, or was it after?
+999. Q: That they left.
+1000. Q: Yes.
+1001. Q: Yes.
+1002. Q: So twice your brother left a place --
+1003. Q: -- where he might have been saved.
+1004. Q: Once when he was hidden and he went to your parents to help them when they were being deported, and then the second time he left the forest to be with them. Do you know where they were sent?
+1005. Q: You think to Auschwitz?
+1006. Q: Yeah, yeah.
+1007. Q: Right.
+1008. Q: So, you go on the Death March, and you obviously see there are a new set of guards now, right? These are not the guards you know.
+1009. Q: Wehrmacht, uh-huh.
+1010. Q: Really. So these are all strangers?
+1011. Q: And there&#39;s a lot of shooting, isn&#39;t there?
+1012. Q: [indecipherable]
+1013. Q: Uh-huh.
+1014. Q: Really?
+1015. Q: And so they pulled you.
+1016. Q: In some way like you pulled Dieter out of --
+1017. Q: -- quarantine 25 --
+1018. Q: -- they kept you going, yes?
+1019. Q: Right.
+1020. Q: You had big bunions from those shoes.
+1021. Q: Yeah.
+1022. Q: Yeah.
+1023. Q: On the Death March?
+1024. Q: Yes.
+1025. Q: And this was miles --
+1026. Q: -- that you walked.
+1027. Q: Miles and miles and miles in very cold January weather.
+1028. Q: Did you have gloves this time?
+1029. Q: You don&#39;t remember.
+1030. Q: Yes. So how many day -- do you have any idea how many days you marched til you got to the train that took you to Ravensbriick?
+1031. Q: Did you sleep two -- two nights in some --
+1032. Q: So this man arranged on the second [indecipherable]
+1033. Q: Were there people in the Polish population that saw you as you were marching?
+1034. Q: Wi -- di -- did people say anything, did anybody give you anything?
+1035. Q: Standing there.
+1036. Q: Yes.
+1037. Q: And the Germans didn&#39;t stop them?
+1038. Q: No.
+1039. Q: Right.
+1040. Q: Mm-hm.
+1041. Q: Right, right.
+1042. Q: It must have been important as a human being to see it, yes?
+1043. Q: Right, right.
+1044. Q: Yes, it may be more important than food in some ways.
+1045. Q: So do you get on a train to go to Ravensbriick?
+1046. Q: Is it an open --
+1047. Q: So you&quot; re still freezing?
+1048. Q: And throw it out? [indecipherable]
+1049. Q: And that&#39;s it.
+1050. Q: So a lot of them died? They just threw them --
+1051. Q: -- like they were twigs.
+1052. Q: So were the women in better shape than that -- than the men?
+1053. Q: So --
+1054. Q: Yeah. Right.
+1055. Q: [indecipherable] yes.
+1056. Q: It was really bad there.
+1057. Q: Bigger sips.
+1058. Q: Icicles.
+1059. Q: And you are hearing rumors about the progress of the war?
+1060. Q: The progress of the war.
+1061. Q: You hear nothing?
+1062. Q: So you have no idea?
+1063. Q: But you didn&#39;t know anything, you didn&#39;t know that the -- the Russians were coming this way
+1064. Q: -- and the allies were coming that way, and --
+1065. Q: Right.
+1066. Q: And they continued later, after you left.
+1067. Q: Yes.
+1068. Q: Right.
+1069. Q: So did it become more and more hopeless? [indecipherable]
+1070. Q: Right.
+1071. Q: Really.
+1072. Q: Redshof.
+1073. Q: That was okay?
+1074. Q: Because it was to -- cause it was
+1075. Q: -- was never going to end.
+1076. Q: So you were in Redshof February, March, April, or January, February? You came in January to Redshof?
+1077. Q: End of January.
+1078. Q: And you were evacuated again?
+1079. Q: Yes.
+1080. Q: Everybody was [indecipherable]
+1081. Q: Did you feel that you were getting closer to being free?
+1082. Q: You did?
+1083. Q: All right, let me ask you one question about Redshof. When you were in Redshof, did you think you were going to start going off your mind too, because you were --
+1084. Q: Even though it was better physically.
+1085. Q: Yes.
+1086. Q: Uh-huh.
+1087. Q: The stars?
+1088. Q: Mm-hm.
+1089. Q: Right.
+1090. Q: But it doesn&#39;t end easily, it&#39;s not as if you&#39;re liberated and everything&#39;s fine
+1091. Q: All of Europe is devastated --
+1092. Q: -- and families are gone from --
+1093. Q: Can you explain that more? What were people talking about that you were not talking --
+1094. Q: And did people ask you what happened? Did they care?
+1095. Q: And they don&#39;t believe you.
+1096. Q: So, did you stop talking?
+1097. Q: You went back to PreSov, we talked about that in the beginning. And then you went to your uncle in Humenne.
+1098. Q: Yes. And you met your husband.
+1099. Q: You met the person who became your husband, if you will.
+1100. Q: Yes. Why did the two of you decide to stay in Slovakia, or was there no choice, until &quot;68?
+1101. Q: Right.
+1102. Q: Wow.
+1103. Q: I was going to say, it must --
+1104. Q: -- must have been very difficult to be there.
+1105. Q: Right.
+1106. Q: Right.
+1107. Q: Right.
+1108. Q: No, go ahead.
+1109. Q: Right.
+1110. Q: Again, right.
+1111. Q: [indecipherable] to stop, yes?
+1112. Q: Is it Alice or Alicia, which is -- which do you like?
+1113. Q: Ali -- Alicia -- Aliska --
+1114. Q: Alice is it.
+1115. Q: Okay. Do you have -- when you think about your life, do you think that Auschwitz changed you a great deal? Or how -- how do you think that -- be-besides the loss, I mean that&#39;s clear --
+1116. Q: -- that the loss is tremendous and there&#39;s nothing -- but you as a person, do you think it changed you a great deal?
+1117. Q: Yeah.
+1118. Q: So, it -- has it in some strange way made you more tolerant than you would have been?
+1119. Q: That you&#39;re easier on people, you don&#39;t judge people?
+1120. Q: Uh-huh.
+1121. Q: Yeah.
+1122. Q: Do you think you were not that way when you were younger, before --
+1123. Q: You don&#39;t know.
+1124. Q: You don&#39;t know.
+1125. Q: Right.
+1126. Q: Yeah.
+1127. Q: But it&#39;s interesting that such a brutal place as Auschwitz --
+1128. Q: -- could somehow -- whether it brought out in you, or you simply made of who you were as a child and didn&#39;t know it.
+1129. Q: Because clearly, certain values that you had came out there. You didn&#39;t become a brutal person --
+1130. Q: -- in Auschwitz.
+1131. Q: So maybe in some funny way it didn&#39;t change you. It changed the course of your life.
+1132. Q: But maybe it didn&#39;t change your character.
+1133. Q: It&#39;s interesting.
+1134. Q: Right.
+1135. Q: Right, right. But you did realize a dream that you had when you were a child, and that was to become a teacher.
+1136. Q: And you did.
+1137. Q: And what did you teach? What was the subject for which you --
+1138. Q: Yeah.
+1139. Q: But what you were really teaching was [indecipherable]
+1140. Q: Right.
+1141. Q: And what did you enjoy most about teaching?
+1142. Q: Right.
+1143. Q: Did any of the students ever ask you about your European past and where you were? Did they -- any -- any of your students ever know that you were in Auschwitz?
+1144. Q: No, nobody.
+1145. Q: And that was a very conscious decision on your part --
+1146. Q: -- not to tell them. Do you think now maybe it would have been okay?
+1147. Q: You wouldn&#39;t say.
+1148. Q: Uh-huh, I see.
+1149. Q: [indecipherable] is.
+1150. Q: Right.
+1151. Q: I would imagine you were a wonderful teacher.
+1152. Q: Yes.
+1153. Q: Right. Yeah, well --
+1154. Q: Yeah. So is there anything that we -- I know you have all sorts of things in your life that we haven&#39;t talked about, but there -- is there anything important about your experiences during the Holocaust that you want to talk about that we haven&#39;t?
+1155. Q: It&#39;s not like that.
+1156. Q: And you think that&#39;s true?
+1157. Q: Yeah.
+1158. Q: So -- so, if that&#39;s true, then was, in some sense, living outside the lager difficult, even though it was horrible in Auschwitz, there was something about it --
+1159. Q: No.
+1160. Q: But outside, it&#39;s harder.
+1161. Q: Right.
+1162. Q: Yes.
+1163. Q: That&#39;s the mask.
+1164. Q: Yeah, and be real.
+1165. Q: [indecipherable] yourself inside.
+1166. Q: Right.
+1167. Q: Well, I want to thank you so very much for coming to Washington and for being willing to say as much as you have. It&#39;s really been an honor to be with you.
+1168. Q: But everybody should have seen what Auschwitz was like for one day and one night?
+1169. Q: Yes. And then go home.
+1170. Q: Yes.
+1171. Q: Yeah.
+1172. Q: The birds were smart.
+1173. Q: The birds were smart.
+1174. Q: Thank you.
+1175. Q: My pleasure.
+1176. Q: Thank you.
+1177. Q: And tell us about this picture. Who is this? Who i -- what was this picture of?
+1178. Q: And about how old -- you were about how old?
+1179. Q: 17 years old.
+1180. Q: So that would have been 1930 --
+1181. Q: 739.
+1182. Q: 738.
+1183. Q: Who is this person right here?
+1184. Q: That&#39;s who you are. And you said there was something special about this young woman?
+1185. Q: She [indecipherable]
+1186. Q: But you dream about her?
+1187. Q: What&#39;s her name?
+1188. Q: Okay. Okay, and what&#39;s this picture?
+1189. Q: And this is the uncle who lived in Humenne? Who was a tea -- no.
+1190. Q: Who was a teacher.
+1191. Q: Right. And he was the one who tried to get you out of --
+1192. Q: Poprad, and saying that she was a teacher and she needed to go.
+1193. Q: And he didn&#39;t succeed.
+1194. Q: And he didn&#39;t survive the war?
+1195. Q: Yeah.
+1196. Q: Okay. Okay, and the picture on the left? That picture.
+1197. Q: In PreSov? Back in PreSov? Is that in PreSov or is this --
+1198. Q: Uh-huh. So you were in Slovakia?
+1199. Q: And you speak about that picture and say, look at my eyes, doesn&#39;t it say everything?
+1200. Q: And the second picture -- second picture.
+1201. Q: So 1947?
+1202. Q: It&#39;s a lovely picture. When was this picture taken?
+1203. Q: In Canada?
+1204. Q: And when was it you had your tattoo removed?
+1205. Q: Just prior -- just afterwards?
+1206. Q: So you have a shot of the tattoo?
+1207. Q: Okay, what is this a picture of?
+1208. Q: From Presov?
+1209. Q: And how many Jews were living at the shelter [indecipherable]
+1210. Q: Okay, maybe I can look it up somehow. What is this? [indecipherable] on the side like this?
+1211. Q: Yes, what kind of a souvenir? Explain, explain.
+1212. Q: And what is it?
+1213. Q: Right.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workflow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Holocaust Survivor Testimonies Dataset</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-structure">Dataset Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-structure">HTML Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-finding-all-the-questions">Example of Finding all the Questions:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-code-to-download-and-parse-the-dataset">Python code to download and parse the dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-dataset-from-hugging-face">Load the dataset from Hugging Face</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-extract-questions-from-html-content">Function to extract questions from HTML content</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterate-through-the-dataset-and-print-questions">Iterate through the dataset and print questions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#note-replace-your-username-in-the-dataset-loading-line-with-the-actual-username-or-organization-name-under-which-the-dataset-is-hosted-on-hugging-face">Note: Replace “your_username” in the dataset loading line with the actual username or organization name under which the dataset is hosted on Hugging Face.</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By William J.B. Mattingly
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
