@@ -22,7 +22,11 @@ parts:
   - file: workflow/01-pdf-to-html
   # - file: workflow/02-add-sentences
   # - file: workflow/03-add-ner
-
+- caption: Analysis
+  numbered: true
+  chapters:
+  - file: analysis/01-exploring-questions
+  
 - caption: Python Files
   numbered: true
   chapters:
