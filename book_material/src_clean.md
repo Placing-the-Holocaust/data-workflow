@@ -1,3 +1,6 @@
+# src.data.clean.py
+
+```python
 import glob
 import pandas as pd
 import os
@@ -132,3 +135,4 @@ def clean_ner_header(input_dir, output_dir):
             
             with open(output_filename, "w", encoding="utf-8") as f:
                 f.write(html)
+```

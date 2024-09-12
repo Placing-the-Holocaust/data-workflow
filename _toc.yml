@@ -8,22 +8,25 @@ parts:
   - file: book_material/01_about_the_project
   - file: book_material/02_team
 
-# - caption: 'Important Terms and Concepts'
-#   numbered: false
-#   chapters:
-#   - file: book_material/01_about_the_project
-#   - file: book_material/02_team
+- caption: 'Important Terms and Concepts'
+  numbered: true
+  chapters:
+  - file: book_material/machine_learning
+  - file: book_material/ner
+  - file: book_material/vector_databases
+  - file: book_material/semantic_search
 
 - caption: Workflow
   numbered: true
   chapters:
   - file: workflow/01-pdf-to-html
-  - file: workflow/02-add-sentences
-  - file: workflow/03-add-ner
+  # - file: workflow/02-add-sentences
+  # - file: workflow/03-add-ner
 
-# - caption: Python Files
-#   numbered: true
-#   chapters:
-#   - file: workflow/01-pdf-to-html
-#   - file: workflow/02-add-sentences
-#   - file: workflow/03-add-ner
+- caption: Python Files
+  numbered: true
+  chapters:
+  - file: book_material/src_clean
+  - file: book_material/src_sentences
+  - file: book_material/src_ner
+  - file: book_material/src_visualize
