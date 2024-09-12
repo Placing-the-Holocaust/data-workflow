@@ -1,0 +1,1232 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/03-add-ner';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="02-add-sentences.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Placing the Holocaust Project - Data Workflow</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">Introduction</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/03-add-ner.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/03-add-ner.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/03-add-ner.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workflow/03-add-ner.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">datasets</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;placingholocaust/testimony-metadata&quot;</span><span class="p">)[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
+<span class="n">testimonies_metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+<span class="n">testimonies_metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RG Number</th>
+      <th>PDF URL</th>
+      <th>USHMM URL</th>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Birth Name</th>
+      <th>Gender</th>
+      <th>Birth Date</th>
+      <th>Birth Year</th>
+      <th>...</th>
+      <th>Ghetto</th>
+      <th>Camp(s) Encyclopedia</th>
+      <th>Camp</th>
+      <th>Non-SS Camp</th>
+      <th>Region</th>
+      <th>Needs Research</th>
+      <th>Data Entry</th>
+      <th>Accession</th>
+      <th>Notes:</th>
+      <th>Revisit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RG-50.549.02.0033</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Hetty</td>
+      <td>d'Ancona de</td>
+      <td>Leeuwe</td>
+      <td>Hetty D'Ancona</td>
+      <td>F</td>
+      <td>1930-05-01</td>
+      <td>1930.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CL</td>
+      <td>1999.A.0293</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RG-50.549.02.0072</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Emanuel</td>
+      <td>None</td>
+      <td>Mandel</td>
+      <td>None</td>
+      <td>M</td>
+      <td>None</td>
+      <td>1936.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>checked</td>
+      <td>GG</td>
+      <td>2003.205</td>
+      <td>Follow-up interview</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RG-50.549.02.0035</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Judith</td>
+      <td>None</td>
+      <td>Meisel</td>
+      <td>None</td>
+      <td>F</td>
+      <td>None</td>
+      <td>1929.0</td>
+      <td>...</td>
+      <td>Kaunas</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>checked</td>
+      <td>GG</td>
+      <td>1999.A.0024</td>
+      <td>This is a follow-up interview to one already d...</td>
+      <td>checked</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RG-50.471.0015</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Esther</td>
+      <td>None</td>
+      <td>Lurie</td>
+      <td>None</td>
+      <td>F</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CL</td>
+      <td>1998.A.0119.15</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>RG-50.030.0585</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Eugene</td>
+      <td>None</td>
+      <td>Miller</td>
+      <td>None</td>
+      <td>M</td>
+      <td>1923-10-16</td>
+      <td>1923.0</td>
+      <td>...</td>
+      <td>Lodz</td>
+      <td>Auschwitz,Dachau</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>checked</td>
+      <td>GG</td>
+      <td>2010.249</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>972</th>
+      <td>RG-50.549.02.0073</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Flory</td>
+      <td>None</td>
+      <td>Jagoda</td>
+      <td>None</td>
+      <td>F</td>
+      <td>1923-12-21</td>
+      <td>1923.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>GG</td>
+      <td>2004.48</td>
+      <td>Follow-up</td>
+      <td>checked</td>
+    </tr>
+    <tr>
+      <th>973</th>
+      <td>RG-50.030.0137</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Cornelius</td>
+      <td>None</td>
+      <td>Loen</td>
+      <td>None</td>
+      <td>M</td>
+      <td>1922-05-02</td>
+      <td>1922.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CL</td>
+      <td>1990.437.1</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>974</th>
+      <td>RG-50.030.0058</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Isaac</td>
+      <td>None</td>
+      <td>Danon</td>
+      <td>None</td>
+      <td>M</td>
+      <td>None</td>
+      <td>1929.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>GG</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>975</th>
+      <td>RG-50.549.02.0078</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Lucie</td>
+      <td>None</td>
+      <td>Rosenberg</td>
+      <td>None</td>
+      <td>F</td>
+      <td>None</td>
+      <td>1921.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>checked</td>
+      <td>CL</td>
+      <td>2004.214</td>
+      <td>Not a survivor, volunteered for the museum?</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>976</th>
+      <td>RG-50.549.02.0038</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>Isaac</td>
+      <td>None</td>
+      <td>Danon</td>
+      <td>None</td>
+      <td>M</td>
+      <td>1929-06-24</td>
+      <td>1929.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CL</td>
+      <td>1999.A.0038</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>977 rows × 24 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testimonies_metadata</span><span class="p">[</span><span class="n">testimonies_metadata</span><span class="p">[</span><span class="s2">&quot;RG Number&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;RG-50.030.0001&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RG Number</th>
+      <th>PDF URL</th>
+      <th>USHMM URL</th>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Birth Name</th>
+      <th>Gender</th>
+      <th>Birth Date</th>
+      <th>Birth Year</th>
+      <th>...</th>
+      <th>Ghetto</th>
+      <th>Camp(s) Encyclopedia</th>
+      <th>Camp</th>
+      <th>Non-SS Camp</th>
+      <th>Region</th>
+      <th>Needs Research</th>
+      <th>Data Entry</th>
+      <th>Accession</th>
+      <th>Notes:</th>
+      <th>Revisit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>602</th>
+      <td>RG-50.030.0001</td>
+      <td>https://collections.ushmm.org/oh_findingaids/R...</td>
+      <td>https://collections.ushmm.org/search/catalog/i...</td>
+      <td>David</td>
+      <td>A.</td>
+      <td>Kochalski</td>
+      <td>None</td>
+      <td>M</td>
+      <td>1928-05-05</td>
+      <td>1928.0</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>West</td>
+      <td>None</td>
+      <td>CL</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 24 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testimonies_metadata</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RG Number                                                 RG-50.549.02.0033
+PDF URL                   https://collections.ushmm.org/oh_findingaids/R...
+USHMM URL                 https://collections.ushmm.org/search/catalog/i...
+First Name                                                            Hetty
+Middle Name                                                     d&#39;Ancona de
+Last Name                                                            Leeuwe
+Birth Name                                                   Hetty D&#39;Ancona
+Gender                                                                    F
+Birth Date                                                       1930-05-01
+Birth Year                                                           1930.0
+Place of Birth                                                         None
+Country                                                                None
+Experience Group                                                   Survivor
+Ghetto(s) Encyclopedia                                                 None
+Ghetto                                                                 None
+Camp(s) Encyclopedia                                                   None
+Camp                                                                   None
+Non-SS Camp                                                            None
+Region                                                                 None
+Needs Research                                                         None
+Data Entry                                                               CL
+Accession                                                       1999.A.0293
+Notes:                                                                 None
+Revisit                                                                None
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">create_yaml_header</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="c1"># Function to create the YAML-like header from a dataframe row</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;---</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;layout: transcript</span><span class="se">\n</span><span class="s2">&quot;</span>
+    
+    <span class="c1"># Helper function to safely get values from the row</span>
+    <span class="k">def</span> <span class="nf">safe_get</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">index</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">column</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">column</span><span class="p">])</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">default</span>
+
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;interviewee: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;First Name&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Middle Name&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Last Name&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;rg_number: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;RG Number&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;pdf_url: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;PDF URL&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;ushmm_url: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;USHMM URL&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;gender: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;birth_date: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Birth Date&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;birth_year: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Birth Year&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;place_of_birth: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Place of Birth&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;country: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;experience_group: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Experience Group&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;ghetto(s)_encyclopedia: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Ghetto(s) Encyclopedia&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;ghetto: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Ghetto&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;camp(s)_encyclopedia: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Camp(s) Encyclopedia&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;camp: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Camp&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;non_ss_camp: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Non-SS Camp&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;region: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Region&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;needs_research: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Needs Research&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;data_entry: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Data Entry&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;accession: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Accession&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;revisit: </span><span class="si">{</span><span class="n">safe_get</span><span class="p">(</span><span class="s1">&#39;Revisit&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;tags: transcripts</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">header</span> <span class="o">+=</span> <span class="s2">&quot;---</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">header</span>
+
+<span class="k">def</span> <span class="nf">process_html_with_spacy</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">,</span> <span class="n">yaml_header</span><span class="p">):</span>
+    <span class="c1"># Parse the HTML content</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Add the YAML header to the top of the HTML</span>
+    <span class="n">header_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">new_tag</span><span class="p">(</span><span class="s2">&quot;pre&quot;</span><span class="p">)</span>
+    <span class="n">header_tag</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">yaml_header</span>
+    <span class="n">soup</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">header_tag</span><span class="p">)</span>
+    
+    <span class="c1"># Find all sentence elements</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;sentence&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="c1"># Get the text content of the sentence</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        
+        <span class="c1"># Process the text with spaCy</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp_model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="c1"># Clear the sentence content</span>
+        <span class="n">sentence</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        
+        <span class="c1"># Add annotated content</span>
+        <span class="n">last_end</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+            <span class="c1"># Add text before the entity</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">last_end</span><span class="p">:</span><span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">])</span>
+            
+            <span class="c1"># Create a new span tag</span>
+            <span class="n">span_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">new_tag</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">label_</span><span class="p">})</span>
+            <span class="n">span_tag</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">:</span><span class="n">ent</span><span class="o">.</span><span class="n">end_char</span><span class="p">]</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span_tag</span><span class="p">)</span>
+            
+            <span class="n">last_end</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">end_char</span>
+        
+        <span class="c1"># Add any remaining text</span>
+        <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">last_end</span><span class="p">:])</span>
+    
+    <span class="c1"># Return the modified HTML as a string</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">process_files</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">,</span> <span class="n">testimonies_data</span><span class="p">):</span>
+    <span class="c1"># Ensure output folder exists</span>
+    <span class="n">Path</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">)</span>
+    <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="c1"># Process each file in the input folder</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.html&#39;</span><span class="p">):</span>
+            <span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            
+            <span class="c1"># Extract the RG Number from the filename</span>
+            <span class="n">rg_number</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># print(rg_number)</span>
+            
+            <span class="c1"># Find the corresponding row in testimonies_data</span>
+            <span class="n">testimony_row</span> <span class="o">=</span> <span class="n">testimonies_data</span><span class="p">[</span><span class="n">testimonies_data</span><span class="p">[</span><span class="s1">&#39;RG Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">rg_number</span><span class="p">]</span>
+            
+            <span class="k">if</span> <span class="n">testimony_row</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No matching data found for </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">. Skipping this file.&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># Create the YAML header</span>
+            <span class="n">yaml_header</span> <span class="o">=</span> <span class="n">create_yaml_header</span><span class="p">(</span><span class="n">testimony_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            
+            <span class="c1"># Read the input file</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">html_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            
+            <span class="c1"># Process the HTML content</span>
+            <span class="n">processed_html</span> <span class="o">=</span> <span class="n">process_html_with_spacy</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">,</span> <span class="n">yaml_header</span><span class="p">)</span>
+            
+            <span class="c1"># Write the processed content to the output file</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">processed_html</span><span class="p">)</span>
+            
+            <span class="c1"># print(f&quot;Processed {filename}&quot;)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dlf&quot;</span><span class="p">,</span> <span class="s2">&quot;populated place&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;interior space&quot;</span><span class="p">,</span> <span class="s2">&quot;env feature&quot;</span><span class="p">,</span> <span class="s2">&quot;building&quot;</span><span class="p">,</span> <span class="s2">&quot;spatial object&quot;</span><span class="p">]</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">blank</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;gliner_spacy&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;gliner_model&quot;</span><span class="p">:</span> <span class="s2">&quot;placingholocaust/gliner_small-v2.1-holocaust&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="n">labels</span><span class="p">,</span> <span class="s2">&quot;chunk_size&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span> <span class="s2">&quot;map_location&quot;</span><span class="p">:</span> <span class="s2">&quot;mps&quot;</span><span class="p">})</span>
+
+<span class="c1"># Usage example:</span>
+<span class="n">process_files</span><span class="p">(</span><span class="s2">&quot;../data/03_html_sentences/&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/04_html_ner&quot;</span><span class="p">,</span> <span class="n">nlp</span><span class="p">,</span> <span class="n">testimonies_metadata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching 4 files: 100%|██████████| 4/4 [00:00&lt;00:00, 71392.41it/s]
+/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py:551: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
+  warnings.warn(
+/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/gliner/model.py:568: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don&#39;t have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_file, map_location=torch.device(map_location))
+  0%|          | 0/979 [00:00&lt;?, ?it/s]Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span> <span class="nf">process_html_with_spacy</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">):</span>
+    <span class="c1"># Parse the HTML content</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Find all sentence elements</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;sentence&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="c1"># Get the text content of the sentence</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        
+        <span class="c1"># Process the text with spaCy</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp_model</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="c1"># Clear the sentence content</span>
+        <span class="n">sentence</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        
+        <span class="c1"># Add annotated content</span>
+        <span class="n">last_end</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+            <span class="c1"># Add text before the entity</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">last_end</span><span class="p">:</span><span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">])</span>
+            
+            <span class="c1"># Create a new span tag</span>
+            <span class="n">span_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">new_tag</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">label_</span><span class="p">})</span>
+            <span class="n">span_tag</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">:</span><span class="n">ent</span><span class="o">.</span><span class="n">end_char</span><span class="p">]</span>
+            <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span_tag</span><span class="p">)</span>
+            
+            <span class="n">last_end</span> <span class="o">=</span> <span class="n">ent</span><span class="o">.</span><span class="n">end_char</span>
+        
+        <span class="c1"># Add any remaining text</span>
+        <span class="n">sentence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">last_end</span><span class="p">:])</span>
+    
+    <span class="c1"># Return the modified HTML as a string</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">process_files</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">output_folder</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">):</span>
+    <span class="c1"># Ensure output folder exists</span>
+    <span class="n">Path</span><span class="p">(</span><span class="n">output_folder</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">)</span>
+    <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="c1"># Process each file in the input folder</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.html&#39;</span><span class="p">):</span>
+            <span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            
+            <span class="c1"># Read the input file</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">html_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            
+            <span class="c1"># Process the HTML content</span>
+            <span class="n">processed_html</span> <span class="o">=</span> <span class="n">process_html_with_spacy</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="n">nlp_model</span><span class="p">)</span>
+            
+            <span class="c1"># Write the processed content to the output file</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">processed_html</span><span class="p">)</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processed </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dlf&quot;</span><span class="p">,</span> <span class="s2">&quot;populated place&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;interior space&quot;</span><span class="p">,</span> <span class="s2">&quot;env feature&quot;</span><span class="p">,</span> <span class="s2">&quot;building&quot;</span><span class="p">,</span> <span class="s2">&quot;spatial object&quot;</span><span class="p">]</span>
+
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">blank</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s2">&quot;gliner_spacy&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;gliner_model&quot;</span><span class="p">:</span> <span class="s2">&quot;placingholocaust/gliner_small-v2.1-holocaust&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="n">labels</span><span class="p">,</span> <span class="s2">&quot;chunk_size&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">})</span>
+
+<span class="c1"># Usage example:</span>
+<span class="c1"># nlp = spacy.load(&quot;en_core_web_sm&quot;)</span>
+<span class="n">process_files</span><span class="p">(</span><span class="s2">&quot;../data/03_html_sentences/&quot;</span><span class="p">,</span> <span class="s2">&quot;../data/04_html_ner&quot;</span><span class="p">,</span> <span class="n">nlp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching 4 files: 100%|██████████| 4/4 [00:00&lt;00:00, 33554.43it/s]
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processed RG-50.030.0001_trs_en_cleaned.html
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workflow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02-add-sentences.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By William J.B. Mattingly
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
