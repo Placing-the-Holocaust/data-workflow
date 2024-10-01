@@ -1,6 +1,6 @@
 import glob
-from data.clean import clean_html
-from data.sentences import add_sentences
+from src.data.clean import clean_html
+from src.data.sentences import add_sentences
 
 # get approved files
 html_files = glob.glob("./data/pdfs/*.html")

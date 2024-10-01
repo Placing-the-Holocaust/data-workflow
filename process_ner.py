@@ -2,8 +2,7 @@ import glob
 import datasets
 import pandas as pd
 import spacy
-from tqdm import tqdm
-from src.data.ner import process_files, clean_ner_header
+from src.data.ner import process_files
 from src.data.clean import clean_ner_header
 
 metadata = datasets.load_dataset("placingholocaust/testimony-metadata")["train"]
@@ -16,8 +15,8 @@ nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_sm
 
 
 
-html_input_directory = "/data/03_html_sentences/"
-ner_output_directory = "/data/04_html_ner/"
+html_input_directory = "./data/03_html_sentences/"
+ner_output_directory = "./data/04_html_ner/"
 
 # Usage example:
 process_files(html_input_directory, ner_output_directory, nlp, testimonies_metadata)
