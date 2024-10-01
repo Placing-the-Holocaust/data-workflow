@@ -21,6 +21,6 @@ ner_output_directory = "./data/04_html_ner/"
 # Usage example:
 # process_files(html_input_directory, ner_output_directory, nlp, testimonies_metadata)
 
-clean_ner_output_directory = "/data/05_ner_cleaned/"
+clean_ner_output_directory = "./data/05_ner_cleaned/"
 # Clean NER headers for all files in the output directory
 clean_ner_header(ner_output_directory, clean_ner_output_directory)
