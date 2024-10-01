@@ -11,7 +11,7 @@ testimonies_metadata = pd.DataFrame(metadata)
 labels = ["dlf", "populated place", "country", "region", "interior space", "env feature", "building", "spatial object"]
 
 nlp = spacy.blank("en")
-nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_small-v2.1-holocaust", "labels": labels, "chunk_size": 300, "map_location": "mps"})
+nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_small-v2.1-holocaust", "labels": labels, "chunk_size": 300, "map_location": "cuda"})
 
 
 
