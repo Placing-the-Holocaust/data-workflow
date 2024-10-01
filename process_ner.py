@@ -19,7 +19,7 @@ html_input_directory = "./data/03_html_sentences/"
 ner_output_directory = "./data/04_html_ner/"
 
 # Usage example:
-process_files(html_input_directory, ner_output_directory, nlp, testimonies_metadata)
+# process_files(html_input_directory, ner_output_directory, nlp, testimonies_metadata)
 
 clean_ner_output_directory = "/data/05_ner_cleaned/"
 # Clean NER headers for all files in the output directory
