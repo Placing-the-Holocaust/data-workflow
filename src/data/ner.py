@@ -1,13 +1,9 @@
 import glob
-import datasets
 import pandas as pd
-import spacy
-from tqdm import tqdm
+from tqdm.auto import tqdm
 from bs4 import BeautifulSoup, Comment
 import os
 from pathlib import Path
-import concurrent.futures
-import multiprocessing
 
 def create_yaml_header(row):
     # Function to create the YAML-like header from a dataframe row
@@ -125,18 +121,16 @@ def process_files(input_folder, output_folder, nlp_model, testimonies_data):
     input_files = glob.glob(os.path.join(input_folder, '*.html'))
     input_files.sort()
     
-    # Prepare arguments for each file
-    args_list = [(input_path, 
-                  os.path.join(output_folder, os.path.basename(input_path)), 
-                  nlp_model, 
-                  testimonies_data) for input_path in input_files]
-    
-    # Use multiprocessing to determine the number of CPUs
-    num_workers = multiprocessing.cpu_count()
-    
-    # Process files using multithreading
-    with concurrent.futures.ThreadPoolExecutor(max_workers=num_workers) as executor:
-        results = list(tqdm(executor.map(process_single_file, args_list), total=len(args_list)))
+    results = []
+    with tqdm(total=len(input_files), desc="Processing files", ncols=100) as pbar:
+        for input_path in input_files:
+            output_path = os.path.join(output_folder, os.path.basename(input_path))
+            if os.path.exists(output_path):
+                results.append(f"Skipped {os.path.basename(input_path)} (already exists)")
+            else:
+                result = process_single_file((input_path, output_path, nlp_model, testimonies_data))
+                results.append(result)
+            pbar.update(1)
     
     # Print summary
     processed = sum(1 for r in results if r.startswith("Processed"))
@@ -147,15 +141,3 @@ def process_files(input_folder, output_folder, nlp_model, testimonies_data):
     print(f"Processed: {processed}")
     print(f"Skipped (already exists): {skipped_existing}")
     print(f"Skipped (no matching data): {skipped_no_data}")
-
-# Load metadata
-metadata = datasets.load_dataset("placingholocaust/testimony-metadata")["train"]
-testimonies_metadata = pd.DataFrame(metadata)
-
-# Setup spaCy model
-labels = ["dlf", "populated place", "country", "region", "interior space", "env feature", "building", "spatial object"]
-nlp = spacy.blank("en")
-nlp.add_pipe("gliner_spacy", config={"gliner_model": "placingholocaust/gliner_small-v2.1-holocaust", "labels": labels, "chunk_size": 250, "map_location": "cuda"})
-
-# Usage example:
-process_files("./data/03_html_sentences/", "./data/04_html_ner", nlp, testimonies_metadata)
