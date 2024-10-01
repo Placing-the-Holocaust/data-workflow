@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/07-datastax';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Placing the Holocaust Project - Data Workflow</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <p align="center">PLACING THE HOLOCAUST</p>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/01_about_the_project.html">About the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/02_team.html">About the Team</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/ner.html">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/semantic_search.html">4. Semantic Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analysis/01-exploring-questions.html">1. Analyzing Questions</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_sentences.html">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/07-datastax.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/07-datastax.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/07-datastax.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workflow/07-datastax.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">astrapy</span> <span class="kn">import</span> <span class="n">DataAPIClient</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="c1"># Load environment variables from .env file</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get API key and URL from environment variables</span>
+<span class="n">ASTRA_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;ASTRA_TOKEN&#39;</span><span class="p">)</span>
+<span class="n">ASTRA_API_ENDPOINT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;ASTRA_API_ENDPOINT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to a database</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">DataAPIClient</span><span class="p">(</span><span class="n">ASTRA_TOKEN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">database</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_database</span><span class="p">(</span><span class="n">ASTRA_API_ENDPOINT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ASTRA_TOKEN: </span><span class="si">{</span><span class="n">ASTRA_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ASTRA_API_ENDPOINT: </span><span class="si">{</span><span class="n">ASTRA_API_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ASTRA_TOKEN: AstraCS:EtDeDieMsPARStKtcnZOFOdY:3f802e2e07da5be014ce2a3d26dcc8693c8acde7dd35dbe1df384624f83397d3
+ASTRA_API_ENDPOINT: https://2534174f-90b3-4e11-afb5-8ee29c3c090d-us-east-2.apps.astra.datastax.com
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to Astra DB: </span><span class="si">{</span><span class="n">database</span><span class="o">.</span><span class="n">list_collection_names</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected to Astra DB: []
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection_name</span> <span class="o">=</span> <span class="s2">&quot;HolocaustTestimonies&quot;</span>
+
+
+<span class="c1"># Create or get the collection</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">create_collection</span><span class="p">(</span><span class="n">collection_name</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">768</span><span class="p">)</span>
+
+<span class="c1"># Define the schema</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sentence_ids&quot;</span><span class="p">:</span> <span class="s2">&quot;list&lt;text&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;populated_place&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;building&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spatial_obj&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dlf&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;int_space&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;env_features&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;npip&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experience_group&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;birth_country&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rg&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;birth_year&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection &#39;</span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">&#39; created successfully.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collection &#39;HolocaustTestimonies&#39; created successfully.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get list of parquet files</span>
+<span class="n">parquet_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../data/06_parquet/*.parquet&quot;</span><span class="p">)</span>
+<span class="n">parquet_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">parquet_files</span> <span class="o">=</span> <span class="n">parquet_files</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">parquet_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> parquet files.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Function to prepare a single row</span>
+<span class="k">def</span> <span class="nf">prepare_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">safe_int</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;sentence_ids&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentence_ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentence_ids&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentence_ids&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;populated_place&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;populated_place&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;building&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;building&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;spatial_obj&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;spatial_obj&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;dlf&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;dlf&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;int_space&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;int_space&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;env_features&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;env_features&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;npip&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;npip&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;experience_group&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;experience_group&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;birth_country&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;birth_country&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;rg&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;rg&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;birth_year&quot;</span><span class="p">:</span> <span class="n">safe_int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;birth_year&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;$vector&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="c1"># Process each parquet file</span>
+<span class="k">for</span> <span class="n">parquet_file</span> <span class="ow">in</span> <span class="n">parquet_files</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">parquet_file</span><span class="p">)</span>
+    
+    <span class="n">data_rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Preparing data&quot;</span><span class="p">):</span>
+        <span class="n">data_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prepare_row</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+    
+    <span class="c1"># Perform batch insertion</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_rows</span><span class="p">),</span> <span class="mi">100</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Inserting data&quot;</span><span class="p">):</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="n">data_rows</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">100</span><span class="p">]</span>
+        <span class="n">collection</span><span class="o">.</span><span class="n">insert_many</span><span class="p">(</span><span class="n">documents</span><span class="o">=</span><span class="n">batch</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data insertion complete.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 4 parquet files.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing data: 100%|██████████| 1050/1050 [00:00&lt;00:00, 24661.32it/s]
+Inserting data: 100%|██████████| 11/11 [00:09&lt;00:00,  1.16it/s]
+Preparing data: 100%|██████████| 1824/1824 [00:00&lt;00:00, 24153.75it/s]
+Inserting data: 100%|██████████| 19/19 [00:16&lt;00:00,  1.13it/s]
+Preparing data: 100%|██████████| 1625/1625 [00:00&lt;00:00, 22100.05it/s]
+Inserting data: 100%|██████████| 17/17 [00:14&lt;00:00,  1.14it/s]
+Preparing data: 100%|██████████| 808/808 [00:00&lt;00:00, 24856.23it/s]
+Inserting data: 100%|██████████| 9/9 [00:07&lt;00:00,  1.22it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data insertion complete.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;sentence-transformers/LaBSE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py:11: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
+  from tqdm.autonotebook import tqdm, trange
+/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:89: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don&#39;t have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(input_path, &quot;pytorch_model.bin&quot;), map_location=torch.device(&quot;cpu&quot;))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the collection with the phrase &quot;Hunger&quot;</span>
+<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&quot;Hunger&quot;</span>
+
+<span class="c1"># Encode the query text</span>
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">query_text</span><span class="p">)</span>
+
+<span class="c1"># Perform the vector search</span>
+<span class="n">search_results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">sort</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;$vector&quot;</span><span class="p">:</span> <span class="n">query_embedding</span><span class="p">},</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top 5 results for the query &#39;</span><span class="si">{</span><span class="n">query_text</span><span class="si">}</span><span class="s2">&#39;:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">search_results</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. Text: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Category: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Experience Group: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;experience_group&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 5 results for the query &#39;Hunger&#39;:
+1. Text: A: I very often was very hungry, but what I remember most is thirst, always being thirsty and never having enough to drink.  I think at one point I sort of lost my appetite for food except when you know you have a grumbling stomach, but I didn&#39;t know really.  I was scared. 
+   Category: answer
+   Experience Group: survivor
+
+2. Text: A: Well, there was starvation, and the worst thing there was no water.  We were hiding in basements.  It was really mayhem. 
+   Category: answer
+   Experience Group: survivor
+
+3. Text: A: Well, there was starvation, and the worst thing there was no water.  We were hiding in basements.  It was really mayhem. 
+   Category: answer
+   Experience Group: survivor
+
+4. Text: I think at one point I sort of lost my appetite for food except when you know you have a grumbling stomach, but I didn&#39;t know really.  I was scared.  I was always full of fear and hunger doesn&#39;t always assert itself when you&#39;re full of fear. 
+   Category: answer
+   Experience Group: survivor
+
+5. Text: I was always full of fear and hunger doesn&#39;t always assert itself when you&#39;re full of fear.  Yes, I remember times that I was hungry, but not so much hungry as full of fear and very thirsty always.  There was never enough to drink. 
+   Category: answer
+   Experience Group: survivor
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: &#39;ef2dacf0-f88e-420f-adac-f0f88ee20f4a&#39;,
+ &#39;sentence_ids&#39;: [&#39;2339&#39;, &#39;2340&#39;],
+ &#39;text&#39;: &quot;Q: You&#39;re tired aren&#39;t you.  Do you want to stop? &quot;,
+ &#39;category&#39;: &#39;question&#39;,
+ &#39;populated_place&#39;: 0,
+ &#39;building&#39;: 0,
+ &#39;country&#39;: 0,
+ &#39;spatial_obj&#39;: 0,
+ &#39;dlf&#39;: 0,
+ &#39;int_space&#39;: 0,
+ &#39;env_features&#39;: 0,
+ &#39;region&#39;: 0,
+ &#39;npip&#39;: 0,
+ &#39;experience_group&#39;: &#39;survivor&#39;,
+ &#39;birth_country&#39;: &#39;poland&#39;,
+ &#39;gender&#39;: &#39;m&#39;,
+ &#39;rg&#39;: &#39;rg-50.030.0001&#39;,
+ &#39;full_name&#39;: &#39;david a. kochalski&#39;,
+ &#39;birth_year&#39;: 1928}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the collection with the phrase &quot;Hunger&quot; and additional filters</span>
+<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&quot;Wir hatten keine essen&quot;</span>
+
+<span class="c1"># Encode the query text</span>
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">query_text</span><span class="p">)</span>
+
+<span class="c1"># Perform the vector search with filters</span>
+<span class="n">search_results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span>
+        <span class="c1"># &quot;building&quot;: {&quot;$gt&quot;: 0},</span>
+        <span class="c1"># &quot;birth_country&quot;: &quot;poland&quot;</span>
+    <span class="p">},</span>
+    <span class="n">sort</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;$vector&quot;</span><span class="p">:</span> <span class="n">query_embedding</span><span class="p">},</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top 5 results for the query &#39;</span><span class="si">{</span><span class="n">query_text</span><span class="si">}</span><span class="s2">&#39; with filters:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">search_results</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. Text: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Category: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Experience Group: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;experience_group&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Populated Place: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;populated_place&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Birth Country: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;birth_country&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 5 results for the query &#39;Wir hatten keine essen&#39; with filters:
+1. Text: I don&#39;t even know if there was anything to drink.  We all had something to eat, I mean whatever we grabbed.  As I said, we had an extra bread which we never allowed ourselves to eat the whole bread. 
+   Category: answer
+   Experience Group: survivor
+   Populated Place: 0
+   Birth Country: poland
+
+2. Text: Food, they took away.  So we went three days and we didn&#39;t eat because there was no food in Germany no where.  We went through Nuremberg. 
+   Category: answer
+   Experience Group: survivor
+   Populated Place: 0
+   Birth Country: hungary
+
+3. Text: So at least I had money.  Food, they took away.  So we went three days and we didn&#39;t eat because there was no food in Germany no where. 
+   Category: answer
+   Experience Group: survivor
+   Populated Place: 0
+   Birth Country: hungary
+
+4. Text: We used to - - we didn&#39;t have any horses or anything, we used to have a little buggy, long buggy, one on the side and I on other side and we would pull from place to place and distribute food.  This I got so many bread.  That was my first job. 
+   Category: answer
+   Experience Group: survivor
+   Populated Place: 0
+   Birth Country: poland
+
+5. Text: We used to - - we didn&#39;t have any horses or anything, we used to have a little buggy, long buggy, one on the side and I on other side and we would pull from place to place and distribute food.  This I got so many bread.  That was my first job. 
+   Category: answer
+   Experience Group: survivor
+   Populated Place: 0
+   Birth Country: poland
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workflow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By William J.B. Mattingly
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
