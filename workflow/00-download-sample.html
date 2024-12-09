@@ -1,0 +1,1342 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Placing the Holocaust Project - Data Workflow</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/00-download-sample';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Placing the Holocaust Project - Data Workflow</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <p align="center">PLACING THE HOLOCAUST</p>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/01_about_the_project.html">About the Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/02_team.html">About the Team</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Important Terms and Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/machine_learning.html">1. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/ner.html">2. Named Entity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/vector_databases.html">3. Vector Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/semantic_search.html">4. Semantic Search</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-pdf-to-html.html">1. Working with the USHMM PDFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analysis/01-exploring-questions.html">1. Analyzing Questions</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_clean.html">1. src.data.clean.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_sentences.html">2. src.data.sentences.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_ner.html">3. src.data.ner.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_material/src_visualize.html">4. src.visualization.visualize.py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/00-download-sample.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/00-download-sample.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/00-download-sample.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/workflow/00-download-sample.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span><span class="p">,</span> <span class="n">list_repo_files</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repo_id</span> <span class="o">=</span> <span class="s2">&quot;placingholocaust/ushmm-pdfs&quot;</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;yolo&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">image_dir</span> <span class="o">=</span> <span class="s2">&quot;RG-50.999.0561_trs_en&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Download the PDF file</span>
+<span class="n">hf_hub_download</span><span class="p">(</span><span class="n">repo_id</span><span class="o">=</span><span class="s2">&quot;placingholocaust/ushmm-pdfs&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;pdfs/</span><span class="si">{</span><span class="n">image_dir</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">repo_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+
+<span class="c1"># Extract the filename from the path</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pdfs/</span><span class="si">{</span><span class="n">image_dir</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the local path where the file is saved</span>
+<span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;pdfs&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved to: </span><span class="si">{</span><span class="n">local_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Open the PDF and convert all pages to images</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">num_pages</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">pages</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of pages: </span><span class="si">{</span><span class="n">num_pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Convert all pages to images</span>
+    <span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">page_num</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># Generate a unique filename for each image</span>
+        <span class="n">image_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">_page</span><span class="si">{</span><span class="n">page_num</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">.png&quot;</span>
+        <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">image_filename</span><span class="p">)</span>
+        
+        <span class="c1"># Save the image</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converted page </span><span class="si">{</span><span class="n">page_num</span><span class="si">}</span><span class="s2"> to image: </span><span class="si">{</span><span class="n">image_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved to: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All pages from </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> have been converted to images and saved in </span><span class="si">{</span><span class="n">image_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0561_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0561_trs_en.pdf
+Number of pages: 14
+Converted page 1 to image: RG-50.999.0561_trs_en_page0001.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0001.png
+Converted page 2 to image: RG-50.999.0561_trs_en_page0002.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0002.png
+Converted page 3 to image: RG-50.999.0561_trs_en_page0003.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0003.png
+Converted page 4 to image: RG-50.999.0561_trs_en_page0004.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0004.png
+Converted page 5 to image: RG-50.999.0561_trs_en_page0005.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0005.png
+Converted page 6 to image: RG-50.999.0561_trs_en_page0006.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0006.png
+Converted page 7 to image: RG-50.999.0561_trs_en_page0007.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0007.png
+Converted page 8 to image: RG-50.999.0561_trs_en_page0008.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0008.png
+Converted page 9 to image: RG-50.999.0561_trs_en_page0009.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0009.png
+Converted page 10 to image: RG-50.999.0561_trs_en_page0010.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0010.png
+Converted page 11 to image: RG-50.999.0561_trs_en_page0011.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0011.png
+Converted page 12 to image: RG-50.999.0561_trs_en_page0012.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0012.png
+Converted page 13 to image: RG-50.999.0561_trs_en_page0013.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0013.png
+Converted page 14 to image: RG-50.999.0561_trs_en_page0014.png
+Saved to: RG-50.999.0561_trs_en/RG-50.999.0561_trs_en_page0014.png
+All pages from RG-50.999.0561_trs_en.pdf have been converted to images and saved in RG-50.999.0561_trs_en
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">random_pdf</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pdfs</span><span class="p">)</span>
+    <span class="n">hf_hub_download</span><span class="p">(</span><span class="n">repo_id</span><span class="o">=</span><span class="s2">&quot;placingholocaust/ushmm-pdfs&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">random_pdf</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">repo_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;trs&quot;</span> <span class="ow">in</span> <span class="n">random_pdf</span><span class="p">:</span>
+        <span class="c1"># Extract the filename from the path</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">random_pdf</span><span class="p">)</span>
+
+        <span class="c1"># Define the local path where the file will be saved</span>
+        <span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="o">+</span><span class="s2">&quot;/pdfs&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="c1"># Download the randomly selected PDF</span>
+        <span class="n">hf_hub_download</span><span class="p">(</span><span class="n">repo_id</span><span class="o">=</span><span class="n">repo_id</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">random_pdf</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">repo_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved to: </span><span class="si">{</span><span class="n">local_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Open the PDF and extract a random image</span>
+
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="n">num_pages</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">pages</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of pages: </span><span class="si">{</span><span class="n">num_pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="c1"># Choose a random page</span>
+            <span class="n">random_page</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_pages</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            
+            <span class="c1"># Convert the page to an image</span>
+            <span class="kn">from</span> <span class="nn">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="n">convert_from_path</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">first_page</span><span class="o">=</span><span class="n">random_page</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">last_page</span><span class="o">=</span><span class="n">random_page</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">images</span><span class="p">:</span>
+                <span class="c1"># There should be only one image (the entire page)</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                
+                <span class="c1"># Generate a unique filename for the image</span>
+                <span class="n">image_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">_page</span><span class="si">{</span><span class="n">random_page</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">.png&quot;</span>
+                <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">image_filename</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+                
+                <span class="c1"># Save the image</span>
+                <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+                
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converted page to image: </span><span class="si">{</span><span class="n">image_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved to: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to convert page to image in </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># if random.random() &lt; 0.05:</span>
+            <span class="c1">#     first_three_pages = convert_from_path(local_path, first_page=1, last_page=min(3, num_pages))</span>
+            <span class="c1">#     for page_num, page_image in enumerate(first_three_pages, start=1):</span>
+            <span class="c1">#         image_filename = f&quot;{os.path.splitext(filename)[0]}_page{page_num}.png&quot;</span>
+            <span class="c1">#         image_path = os.path.join(image_dir, image_filename)</span>
+            <span class="c1">#         page_image.save(image_path)</span>
+            <span class="c1">#         print(f&quot;Converted page {page_num} to image: {image_filename}&quot;)</span>
+            <span class="c1">#         print(f&quot;Saved to: {image_path}&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.549.01.0003_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.549.01.0003_trs_en.pdf
+Number of pages: 23
+yolo7/RG-50.549.01.0003_trs_en_page17.png
+Converted page to image: RG-50.549.01.0003_trs_en_page17.png
+Saved to: yolo7/RG-50.549.01.0003_trs_en_page17.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "662cbac54c8c4aa6a1c8154d76a0bfb4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0470_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0470_trs_en.pdf
+Number of pages: 48
+yolo7/RG-50.030.0470_trs_en_page20.png
+Converted page to image: RG-50.030.0470_trs_en_page20.png
+Saved to: yolo7/RG-50.030.0470_trs_en_page20.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9a2b6b621adf43739f856cc56044c28f", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0232_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0232_trs_en.pdf
+Number of pages: 22
+yolo7/RG-50.030.0232_trs_en_page12.png
+Converted page to image: RG-50.030.0232_trs_en_page12.png
+Saved to: yolo7/RG-50.030.0232_trs_en_page12.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8edf9e7965e348d798d39bfc620ccf40", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0575_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0575_trs_en.pdf
+Number of pages: 63
+yolo7/RG-50.030.0575_trs_en_page29.png
+Converted page to image: RG-50.030.0575_trs_en_page29.png
+Saved to: yolo7/RG-50.030.0575_trs_en_page29.png
+Downloaded: RG-50.030.0398_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0398_trs_en.pdf
+Number of pages: 70
+yolo7/RG-50.030.0398_trs_en_page48.png
+Converted page to image: RG-50.030.0398_trs_en_page48.png
+Saved to: yolo7/RG-50.030.0398_trs_en_page48.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ad6041627d5451d9197e4722a34193b", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0048_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0048_trs_en.pdf
+Number of pages: 35
+yolo7/RG-50.030.0048_trs_en_page32.png
+Converted page to image: RG-50.030.0048_trs_en_page32.png
+Saved to: yolo7/RG-50.030.0048_trs_en_page32.png
+Downloaded: RG-50.030.0502_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0502_trs_en.pdf
+Number of pages: 39
+yolo7/RG-50.030.0502_trs_en_page31.png
+Converted page to image: RG-50.030.0502_trs_en_page31.png
+Saved to: yolo7/RG-50.030.0502_trs_en_page31.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6c0741608c904adbaf8e958650f0c970", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0007_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0007_trs_en.pdf
+Number of pages: 27
+yolo7/RG-50.030.0007_trs_en_page19.png
+Converted page to image: RG-50.030.0007_trs_en_page19.png
+Saved to: yolo7/RG-50.030.0007_trs_en_page19.png
+Downloaded: RG-50.999.0505_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0505_trs_en.pdf
+Number of pages: 12
+yolo7/RG-50.999.0505_trs_en_page10.png
+Converted page to image: RG-50.999.0505_trs_en_page10.png
+Saved to: yolo7/RG-50.999.0505_trs_en_page10.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4ebd867797a74a02ac610efb133c8061", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0086_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0086_trs_en.pdf
+Number of pages: 27
+yolo7/RG-50.106.0086_trs_en_page17.png
+Converted page to image: RG-50.106.0086_trs_en_page17.png
+Saved to: yolo7/RG-50.106.0086_trs_en_page17.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "717af369eaaa412b950fafd7011d62bf", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.042.0003_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.042.0003_trs_en.pdf
+Number of pages: 18
+yolo7/RG-50.042.0003_trs_en_page7.png
+Converted page to image: RG-50.042.0003_trs_en_page7.png
+Saved to: yolo7/RG-50.042.0003_trs_en_page7.png
+Downloaded: RG-50.999.0481_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0481_trs_en.pdf
+Number of pages: 33
+yolo7/RG-50.999.0481_trs_en_page31.png
+Converted page to image: RG-50.999.0481_trs_en_page31.png
+Saved to: yolo7/RG-50.999.0481_trs_en_page31.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "84d4536b24a743c1965eae51e977755d", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0619_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0619_trs_en.pdf
+Number of pages: 13
+yolo7/RG-50.999.0619_trs_en_page9.png
+Converted page to image: RG-50.999.0619_trs_en_page9.png
+Saved to: yolo7/RG-50.999.0619_trs_en_page9.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8f2160595bab4f4ea2a794151f5597b1", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0008_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0008_trs_en.pdf
+Number of pages: 12
+yolo7/RG-50.030.0008_trs_en_page1.png
+Converted page to image: RG-50.030.0008_trs_en_page1.png
+Saved to: yolo7/RG-50.030.0008_trs_en_page1.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "42d07ba64501422790d8007c9cc60d82", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0136_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0136_trs_en.pdf
+Number of pages: 25
+yolo7/RG-50.030.0136_trs_en_page18.png
+Converted page to image: RG-50.030.0136_trs_en_page18.png
+Saved to: yolo7/RG-50.030.0136_trs_en_page18.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a1dd9622c39146168dc83de0c7479bfb", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0026_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0026_trs_en.pdf
+Number of pages: 47
+yolo7/RG-50.030.0026_trs_en_page19.png
+Converted page to image: RG-50.030.0026_trs_en_page19.png
+Saved to: yolo7/RG-50.030.0026_trs_en_page19.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "470d24d729774e4da959777ef6743682", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6280ba00c2c142268ab5181206992d79", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0315_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0315_trs_en.pdf
+Number of pages: 21
+yolo7/RG-50.030.0315_trs_en_page19.png
+Converted page to image: RG-50.030.0315_trs_en_page19.png
+Saved to: yolo7/RG-50.030.0315_trs_en_page19.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ba692de1679e44e8acd7cc1df332001c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.470.0009_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.470.0009_trs_en.pdf
+Number of pages: 24
+yolo7/RG-50.470.0009_trs_en_page4.png
+Converted page to image: RG-50.470.0009_trs_en_page4.png
+Saved to: yolo7/RG-50.470.0009_trs_en_page4.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ef08cb54e144916ab4c6ae65a9c57d4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0459_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0459_trs_en.pdf
+Number of pages: 68
+yolo7/RG-50.030.0459_trs_en_page46.png
+Converted page to image: RG-50.030.0459_trs_en_page46.png
+Saved to: yolo7/RG-50.030.0459_trs_en_page46.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c4e131056d8c4f25831f7d7b194064ae", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0710_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0710_trs_en.pdf
+Number of pages: 19
+yolo7/RG-50.030.0710_trs_en_page7.png
+Converted page to image: RG-50.030.0710_trs_en_page7.png
+Saved to: yolo7/RG-50.030.0710_trs_en_page7.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e7d8c794e78a499cbd085e5e4872c25c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.562.0010_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.562.0010_trs_en.pdf
+Number of pages: 116
+yolo7/RG-50.562.0010_trs_en_page57.png
+Converted page to image: RG-50.562.0010_trs_en_page57.png
+Saved to: yolo7/RG-50.562.0010_trs_en_page57.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "72bb50f748454fd79ac9cf93ee76587b", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0178_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0178_trs_en.pdf
+Number of pages: 98
+yolo7/RG-50.106.0178_trs_en_page73.png
+Converted page to image: RG-50.106.0178_trs_en_page73.png
+Saved to: yolo7/RG-50.106.0178_trs_en_page73.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d5a927a923794b0f92491dea4a33c187", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0590_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0590_trs_en.pdf
+Number of pages: 13
+yolo7/RG-50.999.0590_trs_en_page9.png
+Converted page to image: RG-50.999.0590_trs_en_page9.png
+Saved to: yolo7/RG-50.999.0590_trs_en_page9.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3bc1456009194a15a1dafaafd4c9f4be", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0144_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0144_trs_en.pdf
+Number of pages: 12
+yolo7/RG-50.030.0144_trs_en_page3.png
+Converted page to image: RG-50.030.0144_trs_en_page3.png
+Saved to: yolo7/RG-50.030.0144_trs_en_page3.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "82fdec05982d4f348d072f5587186524", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0432_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0432_trs_en.pdf
+Number of pages: 30
+yolo7/RG-50.999.0432_trs_en_page13.png
+Converted page to image: RG-50.999.0432_trs_en_page13.png
+Saved to: yolo7/RG-50.999.0432_trs_en_page13.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1da3cebdbbf84eceb2867ce1193f85e4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0534_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0534_trs_en.pdf
+Number of pages: 13
+yolo7/RG-50.030.0534_trs_en_page10.png
+Converted page to image: RG-50.030.0534_trs_en_page10.png
+Saved to: yolo7/RG-50.030.0534_trs_en_page10.png
+Downloaded: RG-50.106.0132_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0132_trs_en.pdf
+Number of pages: 99
+yolo7/RG-50.106.0132_trs_en_page95.png
+Converted page to image: RG-50.106.0132_trs_en_page95.png
+Saved to: yolo7/RG-50.106.0132_trs_en_page95.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c357647913d74759a8020795db579d51", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0147_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0147_trs_en.pdf
+Number of pages: 130
+yolo7/RG-50.106.0147_trs_en_page57.png
+Converted page to image: RG-50.106.0147_trs_en_page57.png
+Saved to: yolo7/RG-50.106.0147_trs_en_page57.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ff090cc52bfc43fc808a81ab5c974303", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0584_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0584_trs_en.pdf
+Number of pages: 13
+yolo7/RG-50.999.0584_trs_en_page3.png
+Converted page to image: RG-50.999.0584_trs_en_page3.png
+Saved to: yolo7/RG-50.999.0584_trs_en_page3.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f0c47a9d9c544568edc540d5d1f4e61", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0210_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0210_trs_en.pdf
+Number of pages: 16
+yolo7/RG-50.030.0210_trs_en_page7.png
+Converted page to image: RG-50.030.0210_trs_en_page7.png
+Saved to: yolo7/RG-50.030.0210_trs_en_page7.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "17b0f5b63a804f2c87d311074a08cb96", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c3fe38cca623457eb02831cc7abfda0a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0580_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0580_trs_en.pdf
+Number of pages: 94
+yolo7/RG-50.030.0580_trs_en_page26.png
+Converted page to image: RG-50.030.0580_trs_en_page26.png
+Saved to: yolo7/RG-50.030.0580_trs_en_page26.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a6ce86f758fc4cf2865756226cff9379", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0202_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0202_trs_en.pdf
+Number of pages: 47
+yolo7/RG-50.106.0202_trs_en_page38.png
+Converted page to image: RG-50.106.0202_trs_en_page38.png
+Saved to: yolo7/RG-50.106.0202_trs_en_page38.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0568e9f621be4a1baebb5771d4c1ed05", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0710_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0710_trs_en.pdf
+Number of pages: 19
+yolo7/RG-50.030.0710_trs_en_page15.png
+Converted page to image: RG-50.030.0710_trs_en_page15.png
+Saved to: yolo7/RG-50.030.0710_trs_en_page15.png
+Downloaded: RG-50.999.0559_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0559_trs_en.pdf
+Number of pages: 12
+yolo7/RG-50.999.0559_trs_en_page11.png
+Converted page to image: RG-50.999.0559_trs_en_page11.png
+Saved to: yolo7/RG-50.999.0559_trs_en_page11.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "613649beffea4f6c832c05a4b385ec03", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0643_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0643_trs_en.pdf
+Number of pages: 90
+yolo7/RG-50.030.0643_trs_en_page62.png
+Converted page to image: RG-50.030.0643_trs_en_page62.png
+Saved to: yolo7/RG-50.030.0643_trs_en_page62.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "06592de340da4c7bb362af59362a5315", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "e89550da278d400d8642ed4ed9c72a32", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0093_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0093_trs_en.pdf
+Number of pages: 31
+yolo7/RG-50.030.0093_trs_en_page8.png
+Converted page to image: RG-50.030.0093_trs_en_page8.png
+Saved to: yolo7/RG-50.030.0093_trs_en_page8.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a44364fe8a7a46f690e24e1c1087a417", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0138_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0138_trs_en.pdf
+Number of pages: 23
+yolo7/RG-50.030.0138_trs_en_page17.png
+Converted page to image: RG-50.030.0138_trs_en_page17.png
+Saved to: yolo7/RG-50.030.0138_trs_en_page17.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dd55788af154458796e514d0f09e1341", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c8e7d2dd4a9f47da949792d36006336a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0477_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0477_trs_en.pdf
+Number of pages: 25
+yolo7/RG-50.999.0477_trs_en_page21.png
+Converted page to image: RG-50.999.0477_trs_en_page21.png
+Saved to: yolo7/RG-50.999.0477_trs_en_page21.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fe068808a3dc4bd6b28811825b0b3141", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0532_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0532_trs_en.pdf
+Number of pages: 20
+yolo7/RG-50.030.0532_trs_en_page13.png
+Converted page to image: RG-50.030.0532_trs_en_page13.png
+Saved to: yolo7/RG-50.030.0532_trs_en_page13.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a85585b9f7a0407ea81f352b4bb87326", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "287264ee781f45358daf9fd043708db8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0589_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0589_trs_en.pdf
+Number of pages: 14
+yolo7/RG-50.999.0589_trs_en_page9.png
+Converted page to image: RG-50.999.0589_trs_en_page9.png
+Saved to: yolo7/RG-50.999.0589_trs_en_page9.png
+Downloaded: RG-50.030.0472_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0472_trs_en.pdf
+Number of pages: 91
+yolo7/RG-50.030.0472_trs_en_page42.png
+Converted page to image: RG-50.030.0472_trs_en_page42.png
+Saved to: yolo7/RG-50.030.0472_trs_en_page42.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a41fc8b5d05041d4a98813110c3b482b", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0144_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0144_trs_en.pdf
+Number of pages: 36
+yolo7/RG-50.106.0144_trs_en_page20.png
+Converted page to image: RG-50.106.0144_trs_en_page20.png
+Saved to: yolo7/RG-50.106.0144_trs_en_page20.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e2308ea38264d38ac88651d2170c662", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0888_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0888_trs_en.pdf
+Number of pages: 70
+yolo7/RG-50.030.0888_trs_en_page64.png
+Converted page to image: RG-50.030.0888_trs_en_page64.png
+Saved to: yolo7/RG-50.030.0888_trs_en_page64.png
+Downloaded: RG-50.030.0212_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0212_trs_en.pdf
+Number of pages: 28
+yolo7/RG-50.030.0212_trs_en_page11.png
+Converted page to image: RG-50.030.0212_trs_en_page11.png
+Saved to: yolo7/RG-50.030.0212_trs_en_page11.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "884e1bc2b31647bf9948eb4724f2b1f8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0050_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0050_trs_en.pdf
+Number of pages: 10
+yolo7/RG-50.030.0050_trs_en_page7.png
+Converted page to image: RG-50.030.0050_trs_en_page7.png
+Saved to: yolo7/RG-50.030.0050_trs_en_page7.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "612769ca0a57404d848563e0ccc95547", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3579f22705d04884a4fa205671335b32", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0055_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0055_trs_en.pdf
+Number of pages: 16
+yolo7/RG-50.106.0055_trs_en_page14.png
+Converted page to image: RG-50.106.0055_trs_en_page14.png
+Saved to: yolo7/RG-50.106.0055_trs_en_page14.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b57d72ff1cf9476b9e7ebe546e2a915c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.549.01.0001_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.549.01.0001_trs_en.pdf
+Number of pages: 86
+yolo7/RG-50.549.01.0001_trs_en_page72.png
+Converted page to image: RG-50.549.01.0001_trs_en_page72.png
+Saved to: yolo7/RG-50.549.01.0001_trs_en_page72.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2ccfb8b4c73b4b5a9918f76295596f57", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0226_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0226_trs_en.pdf
+Number of pages: 50
+yolo7/RG-50.106.0226_trs_en_page49.png
+Converted page to image: RG-50.106.0226_trs_en_page49.png
+Saved to: yolo7/RG-50.106.0226_trs_en_page49.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f69493314ec4eb29658317d2c22de63", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.549.02.0041_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.549.02.0041_trs_en.pdf
+Number of pages: 84
+yolo7/RG-50.549.02.0041_trs_en_page65.png
+Converted page to image: RG-50.549.02.0041_trs_en_page65.png
+Saved to: yolo7/RG-50.549.02.0041_trs_en_page65.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "375709f37c8a4df1bbbb2dc3a9f2d948", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0560_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0560_trs_en.pdf
+Number of pages: 15
+yolo7/RG-50.999.0560_trs_en_page13.png
+Converted page to image: RG-50.999.0560_trs_en_page13.png
+Saved to: yolo7/RG-50.999.0560_trs_en_page13.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a77081306c644c6b99339b4d372cef3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0783_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0783_trs_en.pdf
+Number of pages: 167
+yolo7/RG-50.030.0783_trs_en_page17.png
+Converted page to image: RG-50.030.0783_trs_en_page17.png
+Saved to: yolo7/RG-50.030.0783_trs_en_page17.png
+Downloaded: RG-50.030.0169_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0169_trs_en.pdf
+Number of pages: 27
+yolo7/RG-50.030.0169_trs_en_page19.png
+Converted page to image: RG-50.030.0169_trs_en_page19.png
+Saved to: yolo7/RG-50.030.0169_trs_en_page19.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7d117531add04de3ab8bd7b17da06c94", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.999.0532_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.999.0532_trs_en.pdf
+Number of pages: 15
+yolo7/RG-50.999.0532_trs_en_page11.png
+Converted page to image: RG-50.999.0532_trs_en_page11.png
+Saved to: yolo7/RG-50.999.0532_trs_en_page11.png
+Downloaded: RG-50.030.0408_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0408_trs_en.pdf
+Number of pages: 139
+yolo7/RG-50.030.0408_trs_en_page43.png
+Converted page to image: RG-50.030.0408_trs_en_page43.png
+Saved to: yolo7/RG-50.030.0408_trs_en_page43.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "653875bfdef646738dab85f5de3dd7a3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.344.0004_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.344.0004_trs_en.pdf
+Number of pages: 19
+yolo7/RG-50.344.0004_trs_en_page11.png
+Converted page to image: RG-50.344.0004_trs_en_page11.png
+Saved to: yolo7/RG-50.344.0004_trs_en_page11.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "04f33f5893ef465090e485e46f5733d5", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0186_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0186_trs_en.pdf
+Number of pages: 47
+yolo7/RG-50.030.0186_trs_en_page7.png
+Converted page to image: RG-50.030.0186_trs_en_page7.png
+Saved to: yolo7/RG-50.030.0186_trs_en_page7.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7cb7e664b1da474f98c5bd5ae71a740d", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.470.0017_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.470.0017_trs_en.pdf
+Number of pages: 40
+yolo7/RG-50.470.0017_trs_en_page39.png
+Converted page to image: RG-50.470.0017_trs_en_page39.png
+Saved to: yolo7/RG-50.470.0017_trs_en_page39.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "15e8e599378b44db9b6ce3fc7c2a9c7a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0189_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0189_trs_en.pdf
+Number of pages: 130
+yolo7/RG-50.030.0189_trs_en_page59.png
+Converted page to image: RG-50.030.0189_trs_en_page59.png
+Saved to: yolo7/RG-50.030.0189_trs_en_page59.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "67c4ce497d114df08786817a7810593f", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.549.02.0039_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.549.02.0039_trs_en.pdf
+Number of pages: 64
+yolo7/RG-50.549.02.0039_trs_en_page51.png
+Converted page to image: RG-50.549.02.0039_trs_en_page51.png
+Saved to: yolo7/RG-50.549.02.0039_trs_en_page51.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "83942648d0ec4e74bc8aab74582dbd3a", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0197_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0197_trs_en.pdf
+Number of pages: 45
+yolo7/RG-50.106.0197_trs_en_page37.png
+Converted page to image: RG-50.106.0197_trs_en_page37.png
+Saved to: yolo7/RG-50.106.0197_trs_en_page37.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f3976d011c5452aaed732a64be59051", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0245_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0245_trs_en.pdf
+Number of pages: 16
+yolo7/RG-50.030.0245_trs_en_page2.png
+Converted page to image: RG-50.030.0245_trs_en_page2.png
+Saved to: yolo7/RG-50.030.0245_trs_en_page2.png
+Downloaded: RG-50.030.0355_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0355_trs_en.pdf
+Number of pages: 61
+yolo7/RG-50.030.0355_trs_en_page14.png
+Converted page to image: RG-50.030.0355_trs_en_page14.png
+Saved to: yolo7/RG-50.030.0355_trs_en_page14.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a1b8fa6050b742e9a73c47f0e31e1960", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0368_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0368_trs_en.pdf
+Number of pages: 57
+yolo7/RG-50.030.0368_trs_en_page30.png
+Converted page to image: RG-50.030.0368_trs_en_page30.png
+Saved to: yolo7/RG-50.030.0368_trs_en_page30.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b68397922ff14f4185dc48f13d4b9804", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0880_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0880_trs_en.pdf
+Number of pages: 151
+yolo7/RG-50.030.0880_trs_en_page15.png
+Converted page to image: RG-50.030.0880_trs_en_page15.png
+Saved to: yolo7/RG-50.030.0880_trs_en_page15.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "50cc3b8ac55f410eab7737c6067eaf03", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0877_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0877_trs_en.pdf
+Number of pages: 96
+yolo7/RG-50.030.0877_trs_en_page83.png
+Converted page to image: RG-50.030.0877_trs_en_page83.png
+Saved to: yolo7/RG-50.030.0877_trs_en_page83.png
+Downloaded: RG-50.106.0144_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0144_trs_en.pdf
+Number of pages: 36
+yolo7/RG-50.106.0144_trs_en_page11.png
+Converted page to image: RG-50.106.0144_trs_en_page11.png
+Saved to: yolo7/RG-50.106.0144_trs_en_page11.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4b3f148207d54e8994b4e7448a7235a4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0856_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0856_trs_en.pdf
+Number of pages: 134
+yolo7/RG-50.030.0856_trs_en_page65.png
+Converted page to image: RG-50.030.0856_trs_en_page65.png
+Saved to: yolo7/RG-50.030.0856_trs_en_page65.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2cc8364f8276417c9ed69c5f23d56eac", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0179_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0179_trs_en.pdf
+Number of pages: 83
+yolo7/RG-50.106.0179_trs_en_page75.png
+Converted page to image: RG-50.106.0179_trs_en_page75.png
+Saved to: yolo7/RG-50.106.0179_trs_en_page75.png
+Downloaded: RG-50.106.0167_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0167_trs_en.pdf
+Number of pages: 50
+yolo7/RG-50.106.0167_trs_en_page19.png
+Converted page to image: RG-50.106.0167_trs_en_page19.png
+Saved to: yolo7/RG-50.106.0167_trs_en_page19.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "67e3e833bdc049d6a4efc68922fe99f4", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0569_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0569_trs_en.pdf
+Number of pages: 21
+yolo7/RG-50.030.0569_trs_en_page9.png
+Converted page to image: RG-50.030.0569_trs_en_page9.png
+Saved to: yolo7/RG-50.030.0569_trs_en_page9.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "677a77ce56984ab783bf2c45d6b0afaa", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "9eaa0cd569fe4f6ab86a1a26e078c9a8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0080_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0080_trs_en.pdf
+Number of pages: 41
+yolo7/RG-50.030.0080_trs_en_page9.png
+Converted page to image: RG-50.030.0080_trs_en_page9.png
+Saved to: yolo7/RG-50.030.0080_trs_en_page9.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b36c9e90a8964c43bcfe361bf13f229b", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "7210c74c117b4a77b018a5fc4cd65122", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0069_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0069_trs_en.pdf
+Number of pages: 12
+yolo7/RG-50.030.0069_trs_en_page12.png
+Converted page to image: RG-50.030.0069_trs_en_page12.png
+Saved to: yolo7/RG-50.030.0069_trs_en_page12.png
+Downloaded: RG-50.106.0229_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0229_trs_en.pdf
+Number of pages: 52
+yolo7/RG-50.106.0229_trs_en_page48.png
+Converted page to image: RG-50.106.0229_trs_en_page48.png
+Saved to: yolo7/RG-50.106.0229_trs_en_page48.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "573c125e886d47cd87a31f7c2c34cfae", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0100_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0100_trs_en.pdf
+Number of pages: 13
+yolo7/RG-50.030.0100_trs_en_page3.png
+Converted page to image: RG-50.030.0100_trs_en_page3.png
+Saved to: yolo7/RG-50.030.0100_trs_en_page3.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5790c1ce3f9c4b4cb2803cf14a7ed4e8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0185_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0185_trs_en.pdf
+Number of pages: 58
+yolo7/RG-50.106.0185_trs_en_page27.png
+Converted page to image: RG-50.106.0185_trs_en_page27.png
+Saved to: yolo7/RG-50.106.0185_trs_en_page27.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "23a8dd9ca9cf4752ad257aae4a0d2116", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0870_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0870_trs_en.pdf
+Number of pages: 89
+yolo7/RG-50.030.0870_trs_en_page41.png
+Converted page to image: RG-50.030.0870_trs_en_page41.png
+Saved to: yolo7/RG-50.030.0870_trs_en_page41.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e916b089b75c4c6e9e4837a5548a2dfb", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0506_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0506_trs_en.pdf
+Number of pages: 47
+yolo7/RG-50.030.0506_trs_en_page39.png
+Converted page to image: RG-50.030.0506_trs_en_page39.png
+Saved to: yolo7/RG-50.030.0506_trs_en_page39.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac2dbecb53a64ad3ab59e3de3009b6e3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0184_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0184_trs_en.pdf
+Number of pages: 92
+yolo7/RG-50.106.0184_trs_en_page51.png
+Converted page to image: RG-50.106.0184_trs_en_page51.png
+Saved to: yolo7/RG-50.106.0184_trs_en_page51.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b49a48740cdb45a09f0e57f27853b580", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0525_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0525_trs_en.pdf
+Number of pages: 174
+yolo7/RG-50.030.0525_trs_en_page23.png
+Converted page to image: RG-50.030.0525_trs_en_page23.png
+Saved to: yolo7/RG-50.030.0525_trs_en_page23.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "40c55e9cf251498c91685cc7234338c7", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0451_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0451_trs_en.pdf
+Number of pages: 103
+yolo7/RG-50.030.0451_trs_en_page59.png
+Converted page to image: RG-50.030.0451_trs_en_page59.png
+Saved to: yolo7/RG-50.030.0451_trs_en_page59.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f9a2ef7084a945ad85458fe58509c2a6", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.233.0102_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.233.0102_trs_en.pdf
+Number of pages: 5
+yolo7/RG-50.233.0102_trs_en_page2.png
+Converted page to image: RG-50.233.0102_trs_en_page2.png
+Saved to: yolo7/RG-50.233.0102_trs_en_page2.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0c4398dcd28420e918ae96fe351e7f8", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0772_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0772_trs_en.pdf
+Number of pages: 70
+yolo7/RG-50.030.0772_trs_en_page12.png
+Converted page to image: RG-50.030.0772_trs_en_page12.png
+Saved to: yolo7/RG-50.030.0772_trs_en_page12.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "21e3133570b042ee80020c825863ac4c", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.030.0071_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.030.0071_trs_en.pdf
+Number of pages: 15
+yolo7/RG-50.030.0071_trs_en_page13.png
+Converted page to image: RG-50.030.0071_trs_en_page13.png
+Saved to: yolo7/RG-50.030.0071_trs_en_page13.png
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "92739af5e91948408949bbb2292a8525", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloaded: RG-50.106.0110_trs_en.pdf
+Saved to: yolo/pdfs/RG-50.106.0110_trs_en.pdf
+Number of pages: 139
+yolo7/RG-50.106.0110_trs_en_page92.png
+Converted page to image: RG-50.106.0110_trs_en_page92.png
+Saved to: yolo7/RG-50.106.0110_trs_en_page92.png
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./workflow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By William J.B. Mattingly
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

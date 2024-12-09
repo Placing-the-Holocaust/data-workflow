@@ -60,7 +60,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/04-html-to-weaviate';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow/06-html-to-parquet';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -243,7 +243,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/04-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Placing-the-Holocaust/data-workflow/blob/main/workflow/06-html-to-parquet.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +291,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/04-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/edit/main/workflow/06-html-to-parquet.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -308,7 +308,7 @@
       
       
       
-      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/04-html-to-weaviate.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Placing-the-Holocaust/data-workflow/issues/new?title=Issue%20on%20page%20%2Fworkflow/06-html-to-parquet.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +338,7 @@
       
       
       
-      <li><a href="../_sources/workflow/04-html-to-weaviate.ipynb" target="_blank"
+      <li><a href="../_sources/workflow/06-html-to-parquet.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,11 +451,12 @@
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span><span class="p">,</span> <span class="n">list_repo_files</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py:11: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/cross_encoder/CrossEncoder.py:11: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
   from tqdm.autonotebook import tqdm, trange
 </pre></div>
 </div>
@@ -470,16 +471,132 @@
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
   warnings.warn(
-/Applications/anaconda3/envs/fasthtml/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:89: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don&#39;t have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  torch.load(os.path.join(input_path, &quot;pytorch_model.bin&quot;), map_location=torch.device(&quot;cpu&quot;))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../data/05_final/*.html&quot;</span><span class="p">)</span>
-<span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repo_id</span> <span class="o">=</span> <span class="s2">&quot;placingholocaust/cleaned-html&quot;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">list_repo_files</span><span class="p">(</span><span class="n">repo_id</span><span class="p">,</span> <span class="n">repo_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;RG-50.030.0001_trs_en_cleaned.html&#39;, &#39;RG-50.030.0002_trs_en_cleaned.html&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for filename in files:</span>
+<span class="c1">#     hf_hub_download(repo_id=repo_id, filename=filename, local_dir=&quot;../data/06_ner_cleaned&quot;, repo_type=&quot;dataset&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../data/07_final/*.html&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">local_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>979
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">5000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---
+layout: transcript
+interviewee: alice none jakubovic
+rg_number: rg-50.030.0469
+pdf_url: https://collections.ushmm.org/oh_findingaids/rg-50.030.0469_trs_en.pdf
+ushmm_url: https://collections.ushmm.org/search/catalog/irn511521
+gender: f
+birth_date: 1922-05-11
+birth_year: 1922.0
+place_of_birth: prešov
+country: slovakia
+experience_group: survivor
+ghetto(s)_encyclopedia: none
+ghetto: none
+camp(s)_encyclopedia: auschwitz,ravensbruck
+camp: none
+non_ss_camp: none
+region: none
+needs_research: none
+data_entry: cl
+accession: 2002.237
+revisit: none
+tags: transcripts
+---
+---
+layout: transcript
+interviewee: alice none jakubovic
+rg_number: rg-50.030.0469
+pdf_url: https://collections.ushmm.org/oh_findingaids/rg-50.030.0469_trs_en.pdf
+ushmm_url: https://collections.ushmm.org/search/catalog/irn511521
+gender: f
+birth_date: 1922-05-11
+birth_year: 1922.0
+place_of_birth: prešov
+country: slovakia
+experience_group: survivor
+ghetto(s)_encyclopedia: none
+ghetto: none
+camp(s)_encyclopedia: auschwitz,ravensbruck
+camp: none
+non_ss_camp: none
+region: none
+needs_research: none
+data_entry: cl
+accession: 2002.237
+revisit: none
+tags: transcripts
+---
+&lt;!DOCTYPE html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;/&gt;
+&lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;dialogue class=&quot;&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;1&quot;&gt;August 27, 2002&lt;/sentence&gt;&lt;/p&gt;&lt;p&gt;&lt;sentence id=&quot;2&quot;&gt;Beginning Tape One&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;3&quot;&gt;Q: Good morning, Alice.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;4&quot;&gt;A: Good morning, too.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;6&quot;&gt;Q: Welcome, welcome to &lt;span class=&quot;POPULATED_PLACE&quot;&gt;Washington&lt;/span&gt;, and &lt;span class=&quot;REGION&quot;&gt;Virginia&lt;/span&gt;.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;8&quot;&gt;A: Thanks.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;10&quot;&gt;Q: It&#39;s wonderful to have you here, finally, after all this time.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;12&quot;&gt;A: Thanks, well [indecipherable] to meet you.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;14&quot;&gt;Q: Yes.&lt;/sentence&gt;&lt;sentence id=&quot;15&quot;&gt;Alice, tell me when you were born.&lt;/sentence&gt;&lt;sentence id=&quot;16&quot;&gt;What was the date of -- your date of birth.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;20&quot;&gt;A: It was May the 11&quot;&quot;, 1922.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;22&quot;&gt;Q: And where were you born?&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;24&quot;&gt;A: In PreSov.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;26&quot;&gt;Q: In --&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;27&quot;&gt;A: &lt;span class=&quot;COUNTRY&quot;&gt;Slovakia&lt;/span&gt;.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;28&quot;&gt;Q: &lt;span class=&quot;COUNTRY&quot;&gt;Slovakia&lt;/span&gt;.&lt;/sentence&gt;&lt;sentence id=&quot;29&quot;&gt;And what was your name when you were born?&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;32&quot;&gt;A: My name was Alice Roth, R-o-t-h.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;34&quot;&gt;Q: R-o-t-h. And it&#39;s now?&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;36&quot;&gt;A: &lt;span class=&quot;POPULATED_PLACE&quot;&gt;Jakubovic&lt;/span&gt;.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;38&quot;&gt;Q: &lt;span class=&quot;POPULATED_PLACE&quot;&gt;Jakubovic&lt;/span&gt;.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;40&quot;&gt;A: Yes.&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Question&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;48&quot;&gt;Q: Now I -- I&#39;d like to get some idea about your family life, about your mother and your father and your brother, and what life was like.&lt;/sentence&gt;&lt;sentence id=&quot;49&quot;&gt;So tell me -- tell me a little bit about your father.&lt;/sentence&gt;&lt;sentence id=&quot;50&quot;&gt;What was he doing?&lt;/sentence&gt;&lt;/p&gt;&lt;/dialogue&gt;
+&lt;dialogue class=&quot;Answer&quot;&gt;&lt;p&gt;&lt;sentence id=&quot;54&quot;&gt;A: My father, he was a baker, but h-he didn&#39;t start his life to be a baker, yeah?&lt;/sentence&gt;&lt;sentence id=&quot;55&quot;&gt;He was from a &lt;span class=&quot;POPULATED_PLACE&quot;&gt;village&lt;/span&gt;, a middle class family.&lt;/sentence&gt;&lt;sentence id=&quot;56&quot;&gt;Maybe I can tell you a little story about my father, yes?&lt;/sentence&gt;&lt;sentence id=&quot;57&quot;&gt;And that will lead us also to something in &lt;span class=&quot;POPULATED_PLACE&quot;&gt;Auschwitz&lt;/span&gt;.&lt;/sentence&gt;&lt;sentence id=&quot;58&quot;&gt;When I was maybe, I don&#39;t know, a little girl [indecipherable] so, but I remember myself, a little girl maybe six, maybe eight years old.&lt;/sentence&gt;&lt;sentence id=&quot;59&quot;&gt;My father stood in front of me and he said, &quot;You know, when I was born, my mother died.&quot;&lt;/sentence&gt;&lt;sentence id=&quot;60&quot;&gt;During - - giving birth.&lt;/sentence&gt;&lt;sentence id=&quot;61&quot;&gt;And I ask, so -- and who brought you up?&lt;/sentence&gt;&lt;sentence id=&quot;62&quot;&gt;He said, &quot;My grandfather took me to his &lt;span class=&quot;NPIP&quot;&gt;place&lt;/span&gt;.&lt;/sentence&gt;&lt;sentence id=&quot;63&quot;&gt;And my mother&#39;s name was Isen.&quot;&lt;/sentence&gt;&lt;sentence id=&quot;64&quot;&gt;I was a little girl, I didn&#39;t know how to react.&lt;/sentence&gt;&lt;sentence id=&quot;65&quot;&gt;I was sorry for him.&lt;/sentenc
 </pre></div>
 </div>
 </div>
@@ -535,13 +652,13 @@
 
     <span class="k">def</span> <span class="nf">count_labels</span><span class="p">(</span><span class="n">sentences</span><span class="p">):</span>
         <span class="n">label_counters</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;populated_place&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;building&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;spatial_obj&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-            <span class="s1">&#39;dlf&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;int_space&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;env_features&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-            <span class="s1">&#39;npip&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;POPULATED_PLACE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;BUILDING&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SPATIAL_OBJECT&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s1">&#39;DLF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;INTERIOR_SPACE&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ENV_FEATURES&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;REGION&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s1">&#39;NPIP&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;COUNTRY&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">label_counters</span><span class="p">:</span>
-                <span class="n">label_counters</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">label</span><span class="o">.</span><span class="n">lower</span><span class="p">()}))</span>
+                <span class="n">label_counters</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">}))</span>
         
         <span class="k">return</span> <span class="n">label_counters</span>
 
@@ -580,10 +697,11 @@
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">local_files</span><span class="p">):</span>
     <span class="n">output_file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_cleaned.html&quot;</span><span class="p">,</span> <span class="s2">&quot;.parquet&quot;</span><span class="p">)</span>
-    <span class="n">output_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../data/06_parquet/</span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../data/09_parquet/</span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&quot;</span>
     
+
     <span class="c1"># Check if the output file already exists</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_path</span><span class="p">):</span>
         <span class="k">continue</span>  <span class="c1"># Skip this file and move to the next one</span>
@@ -599,252 +717,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 979/979 [1:16:39&lt;00:00,  4.70s/it]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">weaviate</span>
-<span class="kn">from</span> <span class="nn">weaviate.auth</span> <span class="kn">import</span> <span class="n">Auth</span>
-<span class="kn">import</span> <span class="nn">weaviate.classes</span> <span class="k">as</span> <span class="nn">wvc</span>
-
-
-<span class="n">collection_name</span> <span class="o">=</span> <span class="s2">&quot;HolocaustTestimonies&quot;</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">weaviate</span><span class="o">.</span><span class="n">connect_to_weaviate_cloud</span><span class="p">(</span>
-    <span class="n">cluster_url</span><span class="o">=</span><span class="n">WEAVIATE_URL</span><span class="p">,</span>
-    <span class="n">auth_credentials</span><span class="o">=</span><span class="n">Auth</span><span class="o">.</span><span class="n">api_key</span><span class="p">(</span><span class="n">WEAVIATE_API_KEY</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">collection_name</span><span class="p">):</span>
-    <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">collection_name</span><span class="p">)</span>
-
-<span class="n">holocaust_testimonies</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="n">collection_name</span><span class="p">,</span>
-    <span class="n">properties</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sentence_ids&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT_ARRAY</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;populated_place&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;building&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;spatial_obj&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dlf&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;int_space&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;env_features&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;npip&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;experience_group&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;birth_country&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rg&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;full_name&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">TEXT</span>
-        <span class="p">),</span>
-        <span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;birth_year&quot;</span><span class="p">,</span>
-            <span class="n">data_type</span><span class="o">=</span><span class="n">wvc</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT</span>
-        <span class="p">),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collection &#39;</span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">&#39; created successfully.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collection &#39;HolocaustTestimonies&#39; created successfully.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">is_live</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get list of parquet files</span>
-<span class="n">parquet_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../data/06_parquet/*.parquet&quot;</span><span class="p">)</span>
-<span class="n">parquet_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">parquet_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> parquet files.&quot;</span><span class="p">)</span>
-
-<span class="c1"># Function to prepare a single row</span>
-<span class="k">def</span> <span class="nf">prepare_row</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;sentence_ids&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;sentence_ids&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;populated_place&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;populated_place&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;building&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;building&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;spatial_obj&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;spatial_obj&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;dlf&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;dlf&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;int_space&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;int_space&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;env_features&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;env_features&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;npip&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;npip&#39;</span><span class="p">]),</span>
-            <span class="s2">&quot;experience_group&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;experience_group&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;birth_country&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;birth_country&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;rg&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;rg&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">],</span>
-            <span class="s2">&quot;birth_year&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;birth_year&#39;</span><span class="p">])</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;vector&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">]</span>
-    <span class="p">}</span>
-
-<span class="c1"># Process each parquet file</span>
-<span class="k">for</span> <span class="n">parquet_file</span> <span class="ow">in</span> <span class="n">parquet_files</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">parquet_file</span><span class="p">)</span>
-    
-    <span class="c1"># Prepare all the data rows</span>
-    <span class="n">data_rows</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Preparing data&quot;</span><span class="p">):</span>
-        <span class="n">data_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prepare_row</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
-    
-    <span class="c1"># Perform batch insertion</span>
-    <span class="k">with</span> <span class="n">holocaust_testimonies</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">fixed_size</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="k">as</span> <span class="n">batch</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">data_row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data_rows</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Inserting data&quot;</span><span class="p">):</span>
-            <span class="n">batch</span><span class="o">.</span><span class="n">add_object</span><span class="p">(</span>
-                <span class="n">properties</span><span class="o">=</span><span class="n">data_row</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">],</span>
-                <span class="n">vector</span><span class="o">=</span><span class="n">data_row</span><span class="p">[</span><span class="s1">&#39;vector&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data insertion complete.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 979 parquet files.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing data:   0%|          | 0/1050 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Preparing data: 100%|██████████| 1050/1050 [00:00&lt;00:00, 30601.32it/s]
-Inserting data: 100%|██████████| 1050/1050 [00:00&lt;00:00, 8973.22it/s]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data insertion complete.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_rows</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">holocaust_testimonies</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;HolocaustTestimonies&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weaviate.classes.query</span> <span class="kn">import</span> <span class="n">MetadataQuery</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_similar</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
-    <span class="n">query_vector</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">query</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">holocaust_testimonies</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">near_vector</span><span class="p">(</span>
-        <span class="n">near_vector</span><span class="o">=</span><span class="n">query_vector</span><span class="p">,</span>
-        <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">return_metadata</span><span class="o">=</span><span class="n">MetadataQuery</span><span class="p">(</span><span class="n">distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;book&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;chapter&quot;</span><span class="p">],</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;verse&quot;</span><span class="p">],</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">distance</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;We were not ther&quot;</span>
-<span class="n">find_similar</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QueryReturn(objects=[])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 979/979 [42:22&lt;00:00,  2.60s/it]
 </pre></div>
 </div>
 </div>
