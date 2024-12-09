@@ -1,5 +1,6 @@
 data/cleaned_htmls
 data/06_parquet
+data/09_parquet
 data
 data/pdfs
 *.DS_Store
