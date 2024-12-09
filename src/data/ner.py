@@ -56,7 +56,7 @@ def process_html_with_spacy(html_content, nlp_model, yaml_header):
         text = sentence.get_text()
         
         # Process the text with spaCy
-        doc = nlp_model(text)
+        doc = nlp_model.process(text)
         
         # Clear the sentence content
         sentence.clear()
@@ -69,6 +69,12 @@ def process_html_with_spacy(html_content, nlp_model, yaml_header):
             
             # Create a new span tag
             span_tag = soup.new_tag("span", attrs={"class": ent.label_})
+            # Add coordinates if they exist
+            if ent._.coordinates:
+                # print(ent.text, ent.label_, ent._.coordinates)
+                lat, lon = ent._.coordinates
+                span_tag['lat'] = str(lat)
+                span_tag['long'] = str(lon)
             span_tag.string = text[ent.start_char:ent.end_char]
             sentence.append(span_tag)
             
